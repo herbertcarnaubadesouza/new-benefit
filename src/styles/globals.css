@@ -6,7 +6,7 @@
   padding: 0;
   margin: 0;
 }
-
+/* Estilo Header*/
 .Header {
   width: 1920px;
   height: 80px;
@@ -54,5 +54,103 @@
   font-size: 20px;
   line-height: 23px;
   cursor: pointer;
+  color: #ffffff;
+}
+/* Estilo Banner*/
+
+.Main-Banners {
+  margin: 44px 343px 44px 339px;
+  display: flex;
+  align-items: center;
+}
+.Banner1 {
+  width: 603px;
+  height: 602px;
+  border-radius: 15px;
+}
+.Main-Banner2-3 {
+  margin-left: 43px;
+}
+
+.Banner2 {
+  width: 592px;
+  height: 286px;
+  border-radius: 15px;
+  margin-bottom: 31px;
+}
+.Banner3 {
+  width: 592px;
+  height: 286px;
+  border-radius: 15px;
+}
+/* Estilo Footer*/
+
+.Main-Footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 1920px;
+  height: 385px;
+  background: #000000;
+  box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.25);
+}
+.Logo-Footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.Logo-Escura {
+  width: 272px;
+  height: 84px;
+  margin: 41px 0px 0px 340px;
+}
+
+.Slogan {
+  width: 263px;
+  height: 56px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 28px;
+  margin: 27px 0px 177px 355px;
+
+  color: #ffffff;
+}
+.Contato-Footer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+.Contato-Footer h2 {
+  width: 263px;
+  height: 38px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 38px;
+  color: #08d40a;
+  margin: 45px 487px 42px 0;
+}
+
+.Contato-FooterIcon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px 487px 99px 0px;
+  flex-direction: column;
+}
+.Contato-Footer h3 {
+  width: 446px;
+
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 23px;
+
   color: #ffffff;
 }
