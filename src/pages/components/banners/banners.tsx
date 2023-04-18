@@ -8,11 +8,19 @@ function banners() {
   return (
     <div className="Main-Banners">
       <div className="-Main-Banner1">
-        <Image className="Banner1" src={Banner1} alt="Banner-BeneFit" />
+        <a href="#">
+          {" "}
+          <Image className="Banner1" src={Banner1} alt="Banner-BeneFit" />
+        </a>
       </div>
       <div className="Main-Banner2-3">
-        <Image className="Banner2" src={Banner2} alt="Banner-BeneFit" />
-        <Image className="Banner3" src={Banner3} alt="Banner-BeneFit" />
+        <a href="#">
+          {" "}
+          <Image className="Banner2" src={Banner2} alt="Banner-BeneFit" />
+        </a>
+        <a href="#">
+          <Image className="Banner3" src={Banner3} alt="Banner-BeneFit" />
+        </a>
       </div>
     </div>
   );
