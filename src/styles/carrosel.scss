@@ -1,103 +1,31 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-* {
+/* Estilo Carrosel*/
+.mySwiper {
   padding: 0;
   margin: 0;
 }
-/* Estilo Header*/
-.Header {
-  width: 1920px;
-  height: 80px;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  background: #ffffff;
-  box-shadow: 0px 4px 4px 2px rgba(0, 0, 0, 0.25);
+.slide-carrosel {
+  width: 1298px;
+  margin: 26px 315px 46px 310px;
+  height: 806px;
+  background-color: transparent;
 }
-.logo {
-  width: 171px;
-  height: 53px;
-  margin: 14px 0 13px 344px;
-}
-.Clicaveis {
-  margin-right: 343px;
-}
-.Clicaveis a {
-  width: 276px;
-  height: 23px;
-  left: 1124px;
-  top: 29px;
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 500;
-  font-size: 20px;
-  line-height: 23px;
-  color: #000000;
-  padding-left: 15px;
-  margin: 28px 0 29px;
-}
-
-.Login {
-  width: 160px;
-  height: 45px;
-  left: 1417px;
-  top: 18px;
-  background: #08d40a;
-  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  border-radius: 10px;
-  margin-left: 17px;
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 600;
-  font-size: 20px;
-  line-height: 23px;
-  cursor: pointer;
-  color: #ffffff;
-}
-/* Estilo Banner*/
-
-.Main-Banners {
-  margin: 44px 343px 44px 339px;
-  display: flex;
-  align-items: center;
-}
-.Banner1 {
-  width: 603px;
-  height: 602px;
-  border-radius: 15px;
-}
-.Main-Banner2-3 {
-  margin-left: 43px;
-}
-
-.Banner2 {
-  width: 592px;
-  height: 286px;
-  border-radius: 15px;
-  margin-bottom: 31px;
-}
-.Banner3 {
-  width: 592px;
-  height: 286px;
-  border-radius: 15px;
-}
-/* Estilo Carrosel*/
-.Carrosel {
+.container-carrosel {
   background-image: url("/back-img-carrosel.png");
-  position: absolute;
+  background-repeat: no-repeat; /* Impede a repetição da imagem */
   width: 100%;
-  height: 878px;
 
+  background-size: cover;
+  height: 878px;
   display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .frist-icon {
   width: 100px;
   height: 100px;
   margin: 38px 140px 0px 140px;
 }
-.Carrosel p {
+.container-carrosel p {
   font-family: "Roboto";
   font-style: normal;
   font-weight: 400;
@@ -107,7 +35,7 @@
   margin: 14px 51px 0px 52px;
   color: #000000;
 }
-.Carrosel h2 {
+.container-carrosel h2 {
   font-family: "Roboto";
   font-style: normal;
   font-weight: 700;
@@ -190,7 +118,7 @@
   border-radius: 50px;
   margin: 91px 52px 0px 0px;
 }
-.Carrosel button {
+.container-carrosel button {
   width: 277px;
   height: 55px;
   background: #08d40a;
@@ -203,7 +131,7 @@
   line-height: 21px;
   color: #ffffff;
 }
-.Carrosel h4 {
+.container-carrosel h4 {
   margin-bottom: 30px;
   margin-top: 22px;
   font-family: "Roboto";
@@ -226,7 +154,7 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin: 49px 0px 77px 350px;
+  margin: 23px 0px 31px 30px;
 }
 
 .carrosel-educacao {
@@ -238,10 +166,15 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin: 49px 47px 77px 47px;
+  margin-top: 23px;
+  margin: 23px 47px 31px 15px;
 }
-
-.carrosel-conforto {
+.carrosel-tecnologia h2 {
+  width: 277px;
+  text-align: center;
+}
+.carrosel-conforto,
+.carrosel-tecnologia {
   width: 380px;
   height: 752px;
   background: #ffffff;
@@ -250,76 +183,6 @@
   display: flex;
   align-items: center;
   flex-direction: column;
-  margin: 49px 338px 77px 0px;
-}
-/* Estilo Footer*/
-
-.Main-Footer {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 1920px;
-  height: 385px;
-  background: #000000;
-  box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.25);
-}
-.Logo-Footer {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.Logo-Escura {
-  width: 272px;
-  height: 84px;
-  margin: 41px 0px 0px 340px;
-}
-
-.Slogan {
-  width: 263px;
-  height: 56px;
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 24px;
-  line-height: 28px;
-  margin: 27px 0px 177px 355px;
-
-  color: #ffffff;
-}
-.Contato-Footer {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
-.Contato-Footer h2 {
-  width: 263px;
-  height: 38px;
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 600;
-  font-size: 32px;
-  line-height: 38px;
-  color: #08d40a;
-  margin: 45px 487px 42px 0;
-}
-
-.Contato-FooterIcon {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0px 487px 99px 0px;
-  flex-direction: column;
-}
-.Contato-Footer h3 {
-  width: 446px;
-
-  font-family: "Roboto";
-  font-style: normal;
-  font-weight: 400;
-  font-size: 20px;
-  line-height: 23px;
-
-  color: #ffffff;
+  margin-top: 23px;
+  margin: 23px 23px 31px 20px;
 }

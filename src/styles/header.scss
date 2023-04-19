@@ -1,0 +1,50 @@
+/* Estilo Header*/
+.header {
+  width: 100%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #ffffff;
+  box-shadow: 0px 4px 4px 2px rgba(0, 0, 0, 0.25);
+}
+.logo-benefit {
+  width: 171px;
+  height: 53px;
+  margin: 14px 0 13px 344px;
+}
+.links-header {
+  margin-right: 343px;
+}
+.links-header a {
+  width: 276px;
+  height: 23px;
+  left: 1124px;
+  top: 29px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 23px;
+  color: #000000;
+  padding-left: 15px;
+  margin: 28px 0 29px;
+}
+
+.Login {
+  width: 160px;
+  height: 45px;
+  left: 1417px;
+  top: 18px;
+  background: #08d40a;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  margin-left: 17px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 23px;
+  cursor: pointer;
+  color: #ffffff;
+}

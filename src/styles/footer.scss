@@ -1,0 +1,94 @@
+/* Estilo Footer*/
+
+.container-Footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  height: 425px;
+  background: #000000;
+  box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.25);
+
+  bottom: 0;
+}
+.Logo-Footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-Escura {
+  width: 272px;
+  height: 84px;
+  margin: 41px 0px 0px 340px;
+}
+
+.Slogan {
+  width: 263px;
+  height: 56px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 28px;
+  margin: 27px 0px 177px 355px;
+
+  color: #ffffff;
+}
+.Contato-Footer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  width: 45%;
+}
+.Contato-Footer h2 {
+  width: 263px;
+  height: 38px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 32px;
+  line-height: 38px;
+  color: #08d40a;
+  margin: 45px 487px 42px 0;
+}
+
+.listaContato-Footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0px 487px 99px 200px;
+  flex-direction: column;
+  width: 446px;
+  height: 161;
+}
+.Contato-Footer h3 {
+  width: 446px;
+
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 23px;
+
+  color: #ffffff;
+}
+
+.listaContato-Footer div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 13px;
+  text-align: start;
+}
+
+.Icon-Footer {
+  width: 24px;
+  height: 24px;
+  margin-right: 16px;
+}
+.Icon-Footer-duvidas {
+  margin-left: 26px;
+  margin-right: 16px;
+}

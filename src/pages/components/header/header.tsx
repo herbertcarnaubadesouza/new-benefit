@@ -4,12 +4,12 @@ import Image from "next/image";
 
 const Header = () => {
   return (
-    <div className="Main">
-      <div className="Header">
+    <div className="container-header">
+      <div className="header">
         <div>
-          <Image className="logo" src={Logo} alt="Logo-BeneFit" />
+          <Image className="logo-benefit" src={Logo} alt="Logo-BeneFit" />
         </div>
-        <div className="Clicaveis">
+        <div className="links-header">
           <a href="#">Início</a>
           <a href="#">Seja Cliente</a>
           <a href="#">Contato</a>
