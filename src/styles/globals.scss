@@ -6,3 +6,123 @@
   padding: 0;
   margin: 0;
 }
+
+// Sections - Bruno
+$cor-titulo: #08d40a;
+$cor-texto: #000000;
+
+.container__descricao {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-top: 20px;
+  margin-left: 330px;
+
+  h2 {
+    width: 258px;
+    height: 94px;
+    left: 529px;
+    margin-top: 107px;
+    margin-bottom: 24px;
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 40px;
+    line-height: 47px;
+    text-align: center;
+    color: $cor-titulo;
+    max-width: 100%;
+  }
+
+  p {
+    margin-bottom: 31px;
+    display: inline-block;
+    font-style: normal;
+    font-family: "Roboto";
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 28px;
+    text-align: center;
+    color: $cor-texto;
+    width: 347px;
+    height: 56px;
+  }
+}
+
+.descricao__titulo {
+  position: absolute;
+  width: 258px;
+  height: 94px;
+  left: 529px;
+  top: 107px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 40px;
+  line-height: 47px;
+  text-align: center;
+  color: $cor-titulo;
+}
+
+.descricao__texto {
+  position: absolute;
+  width: 346337px;
+  height: 56px;
+  left: 484px;
+  top: 225px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 28px;
+  text-align: center;
+  color: $cor-texto;
+}
+
+.baixe {
+  width: 100%;
+  height: 680px;
+  display: flex;
+  background-image: url("/back-img-carrosel.png");
+  max-width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  justify-content: center;
+  align-items: center;
+}
+
+.botao {
+  display: inline-block;
+  margin-right: 17px;
+}
+
+.container__imagem {
+  width: 816px;
+  height: 670px;
+  padding-top: 47px;
+  max-width: 100%;
+  display: flex;
+}
+
+.cashback__imagem {
+  width: 816px;
+  height: 612px;
+  padding-top: 47px;
+  max-width: 100%;
+  display: flex;
+  position: relative; /* adicionado */
+}
+
+.silium {
+  width: 296px;
+  height: 178px;
+  filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.25));
+  transform: rotate(7.09deg);
+  position: absolute; /* adicionado */
+  top: 50%; /* ajuste a posição vertical */
+  left: 50%; /* centralizado na horizontal */
+  margin-top: -55px; /* metade da altura da imagem do logo */
+  margin-left: 30px; /* metade da largura da imagem do logo */
+  z-index: 1; /* para que a imagem do logo fique em cima da imagem do notebook */
+}
