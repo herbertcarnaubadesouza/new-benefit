@@ -6,6 +6,7 @@ import Carrosel from "../pages/components/carrosel/carrosel";
 import SectionApp from "../pages/components/sectionApp/sectionApp";
 import CashBack from "../pages/components/cashback/cashback";
 import SectionCalculadora from "../pages/components/sectionCalculadora/sectionCalculadora";
+import Cliente from "../pages/components/cliente/cliente";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -16,6 +17,7 @@ export default function Home() {
         <Header />
         <Banner />
         <Carrosel />
+        <Cliente />
         <CashBack />
         <SectionCalculadora />
         <SectionApp />
