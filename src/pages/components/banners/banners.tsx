@@ -1,4 +1,3 @@
-import React from "react";
 import Image from "next/image";
 
 import Banner1 from "../../../../public/banner01.png";
@@ -8,7 +7,7 @@ import Banner3 from "../../../../public/banner03.png";
 function banners() {
   return (
     <div className="container-banners">
-      <div className="-main-banner1">
+      <div className="main-banner1">
         <a href="#">
           <Image className="banner1" src={Banner1} alt="Banner-BeneFit" />
         </a>

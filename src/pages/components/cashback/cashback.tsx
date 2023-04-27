@@ -1,4 +1,3 @@
-import React from "react";
 import Image from "next/image";
 import Notebook from "../../../../public/notebook.png";
 import Logo from "../../../../public/silium.png";

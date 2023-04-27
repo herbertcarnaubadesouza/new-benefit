@@ -1,8 +1,6 @@
-import React from "react";
 import Image from "next/image";
 import Apple from "../../../../public/apple.jpg";
 import Google from "../../../../public/google.jpg";
-import Celular from "../../../../public/celular.png";
 
 const Baixe = () => {
   return (
@@ -17,7 +15,7 @@ const Baixe = () => {
           </div>
         </div>
         <div className="container__imagem">
-          <Image src={Celular} className="celular" alt="Celular" />
+          {/* <Image src={Celular} className="celular" alt="Celular" /> */}
         </div>
       </div>
     </section>

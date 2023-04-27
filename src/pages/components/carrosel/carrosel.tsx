@@ -1,32 +1,31 @@
-import React from "react";
 import Image from "next/image";
 
 // Criacao Slide
 
-import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination, FreeMode } from "swiper";
+import { FreeMode } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+import { Swiper, SwiperSlide } from "swiper/react";
 
 // Primeiro banner
 import boaCompanhia from "../../../../public/boacompanhia.png";
 import cardiogram from "../../../../public/cardiogram.png";
-import metrica from "../../../../public/metrica.png";
 import imgAbraco from "../../../../public/imgAbraço.png";
+import metrica from "../../../../public/metrica.png";
 // Segundo banner
+import UniMais from "../../../../public/UniMais.png";
+import camColegio from "../../../../public/camColegio.png";
 import logoEducacao from "../../../../public/logoEducacao.png";
 import proInvesti from "../../../../public/proInvest.png";
-import UniMais from "../../../../public/UniMais.png";
 import terceiroAncar from "../../../../public/terceiroAncar.png";
-import camColegio from "../../../../public/camColegio.png";
 
 // Terceiro banner
-import logoHouse from "../../../../public/logoHouse.png";
 import brastemp from "../../../../public/brastemp.png";
 import kitchen from "../../../../public/kitchen.png";
-import polishop from "../../../../public/polisho.png";
+import logoHouse from "../../../../public/logoHouse.png";
 import oster from "../../../../public/oster.png";
+import polishop from "../../../../public/polisho.png";
 
 function carrosel() {
   return (

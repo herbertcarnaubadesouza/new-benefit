@@ -1,33 +1,49 @@
 /* Estilo Banner */
 
-$banners-margin: 44px 343px 44px 339px;
-$banners-border-radius: 15px;
-$banners-gap: 43px;
-
 .container-banners {
-  margin: $banners-margin;
   display: flex;
+  max-width: 1300px;
+  margin-inline: auto;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+  padding-top: 130px;
+  padding-inline: 4rem;
+  padding-bottom: 50px;
 
   .banner1 {
     width: 603px;
     height: 602px;
-    border-radius: $banners-border-radius;
-    margin-right: $banners-gap;
+
+    @media screen and (max-width: 1370px) {
+      width: 503px;
+      height: 502px;
+    }
+
+    @media only screen and (max-width: 1267px) {
+      width: 403px;
+      height: 402px;
+    }
   }
 
   .main-banner2-3 {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    margin-left: $banners-gap;
 
     .banner2,
     .banner3 {
-      width: 592px;
       height: 286px;
-      border-radius: $banners-border-radius;
+      width: 592px;
+      object-fit: cover;
+
+      @media only screen and (max-width: 1370px) {
+        border-radius: 15px;
+        height: 233px;
+      }
+
+      @media only screen and (max-width: 1267px) {
+        height: 186px;
+      }
     }
 
     .banner2 {

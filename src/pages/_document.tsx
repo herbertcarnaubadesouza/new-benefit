@@ -1,13 +1,18 @@
-import { Html, Head, Main, NextScript } from "next/document";
+import Document, { Head, Html, Main, NextScript } from "next/document";
 
-export default function Document() {
-  return (
-    <Html lang="pt-BR">
-      <Head />
-      <body>
-        <Main />
-        <NextScript />
-      </body>
-    </Html>
-  );
+export default class MyDocument extends Document {
+  render(): JSX.Element {
+    return (
+      <Html lang="pt-BR">
+        <Head>
+          <link rel="shortcut icon" href="/favicon.ico" type="image/ico" />
+          <title>Clube BeneFit</title>
+        </Head>
+        <body>
+          <Main />
+          <NextScript />
+        </body>
+      </Html>
+    );
+  }
 }

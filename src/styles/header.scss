@@ -1,34 +1,47 @@
 /* Estilo Header*/
-.header {
+
+.container-header {
   width: 100%;
-  height: 80px;
+  position: fixed;
+  top: 0;
+  padding-block: 14px;
+  background: #ffffff;
+  box-shadow: 0px 4px 4px 2px rgba(0, 0, 0, 0.25);
+  z-index: 9999;
+}
+
+.header {
+  margin-inline: auto;
+  max-width: 1300px;
+  padding-inline: 4rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: #ffffff;
-  box-shadow: 0px 4px 4px 2px rgba(0, 0, 0, 0.25);
 }
 .logo-benefit {
   width: 171px;
   height: 53px;
-  margin: 14px 0 13px 344px;
+  object-fit: cover;
 }
 .links-header {
-  margin-right: 343px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 .links-header a {
-  width: 276px;
-  height: 23px;
-  left: 1124px;
-  top: 29px;
   font-family: "Roboto";
   font-style: normal;
   font-weight: 500;
   font-size: 20px;
+  text-decoration: none;
   line-height: 23px;
   color: #000000;
-  padding-left: 15px;
-  margin: 28px 0 29px;
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
+    color: #08d40a;
+  }
 }
 
 .Login {
@@ -42,9 +55,10 @@
   margin-left: 17px;
   font-family: "Roboto";
   font-style: normal;
-  font-weight: 600;
+  font-weight: 500;
   font-size: 20px;
   line-height: 23px;
   cursor: pointer;
   color: #ffffff;
+  border: none;
 }
