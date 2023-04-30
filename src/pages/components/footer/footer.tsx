@@ -31,7 +31,7 @@ function footer() {
               <h3>(61) 99354-6881</h3>
             </div>
 
-            <div>
+            <div className="email">
               <Image className="Icon-Footer" src={Email} alt="Email" />
               <h3>atendimento@temmaisvantagens.com.br</h3>
             </div>

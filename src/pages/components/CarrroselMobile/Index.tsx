@@ -27,7 +27,7 @@ import logoHouse from "../../../../public/logoHouse.png";
 import oster from "../../../../public/oster.png";
 import polishop from "../../../../public/polisho.png";
 
-function carrosel() {
+function CarrroselMobile() {
   return (
     <div className="container-carrosel">
       <div className="slide-carrosel">
@@ -35,12 +35,17 @@ function carrosel() {
           grabCursor={true}
           modules={[Autoplay, Navigation, Pagination]}
           className="mySwiper"
-          slidesPerView={3}
+          slidesPerView={1}
           spaceBetween={30}
-          loop={true}
-          loopedSlides={5} // Add this prop
+          loop={false}
+          loopedSlides={5}
           autoplay={{
             delay: 3000,
+          }}
+          pagination={{
+            el: ".swiper-pagination",
+            type: "bullets",
+            clickable: true,
           }}
         >
           <SwiperSlide>
@@ -80,6 +85,9 @@ function carrosel() {
               <h4>*Consulte as condições no site.</h4>
             </div>
           </SwiperSlide>
+          {/* Paginação*/}
+          <div className="swiper-pagination"></div>
+          {/* Paginação*/}
           <SwiperSlide>
             <div className="carrosel-educacao">
               <Image
@@ -333,4 +341,4 @@ function carrosel() {
   );
 }
 
-export default carrosel;
+export default CarrroselMobile;

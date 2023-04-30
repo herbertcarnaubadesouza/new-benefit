@@ -10,6 +10,12 @@
   padding-inline: 4rem;
   padding-bottom: 50px;
 
+  @media only screen and (max-width: 768px) {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+  }
+
   .banner1 {
     width: 603px;
     height: 602px;
@@ -22,6 +28,10 @@
     @media only screen and (max-width: 1267px) {
       width: 403px;
       height: 402px;
+    }
+    @media only screen and (max-width: 768px) {
+      width: 350px;
+      height: 350px;
     }
   }
 
@@ -43,6 +53,11 @@
 
       @media only screen and (max-width: 1267px) {
         height: 186px;
+      }
+      @media only screen and (max-width: 768px) {
+        height: 155px;
+        width: 350px;
+        margin-left: 15px;
       }
     }
 

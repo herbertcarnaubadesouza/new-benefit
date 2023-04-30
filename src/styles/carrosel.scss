@@ -3,22 +3,22 @@
   padding: 0;
   margin: 0;
 }
-.slide-carrosel {
-  width: 1298px;
-  margin: 26px 315px 46px 310px;
-  height: 806px;
-  background-color: transparent;
-}
+
 .container-carrosel {
   background-image: url("/back-img-carrosel.png");
   background-repeat: no-repeat; /* Impede a repetição da imagem */
   width: 100%;
-
   background-size: cover;
   height: 878px;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+.slide-carrosel {
+  width: 1298px;
+  margin: 26px 315px 46px 310px;
+  height: 806px;
+  background-color: transparent;
 }
 .frist-icon {
   width: 100px;

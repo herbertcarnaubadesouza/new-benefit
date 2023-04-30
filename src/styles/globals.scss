@@ -284,3 +284,174 @@ $cor-texto: #000000;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 20px;
 }
+
+// Estilo carrosel Banners
+.container-carroselBanner {
+  height: 500px;
+  max-width: 768px;
+  margin-top: 150px;
+}
+.main-carroselBanner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 90%;
+  height: 90%;
+  margin: 0 auto;
+}
+.div-slide {
+  width: 100%;
+  height: 430px;
+  margin-bottom: 25px;
+}
+.div-slide img {
+  width: 95%;
+  height: 95%;
+  margin-left: 20px;
+}
+
+@media (max-width: 430px) {
+  .div-slide img {
+    width: 95%;
+    height: 85%;
+    margin-left: 10px;
+  }
+}
+
+// Estilo carrosel Mobile
+@media (max-width: 768px) {
+  .container-carrosel {
+    margin: 0;
+    height: 900px;
+  }
+  .slide-carrosel {
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 768px;
+
+    height: 100%;
+  }
+  .carrosel-saude,
+  .carrosel-conforto,
+  .carrosel-tecnologia,
+  .carrosel-educacao {
+    margin: 0;
+    margin-left: 200px;
+    margin-bottom: 55px;
+  }
+}
+@media (max-width: 430px) {
+  .carrosel-saude,
+  .carrosel-conforto,
+  .carrosel-tecnologia,
+  .carrosel-educacao {
+    margin: 0;
+    margin-left: 210px;
+    width: 45%;
+    height: 100%;
+    margin-bottom: 25px;
+  }
+}
+
+// Media sectionApp
+@media (max-width: 768px) {
+  .baixe {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 750px;
+  }
+  .container__descricao {
+    margin: 0px;
+    margin-top: 60px;
+  }
+  .container__descricao h2 {
+    margin-top: 10px;
+  }
+  .container__imagem img {
+    width: 517px;
+    height: 388px;
+    margin-top: 39px;
+  }
+  .container__descricao > div > img {
+    width: 141px;
+    height: 43px;
+  }
+}
+// Media sectionCalculadora
+@media (max-width: 768px) {
+  .container-calculadora {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+  }
+  .container-calculadora .button > button {
+    margin-top: 50px;
+  }
+}
+// Media section cashback
+@media (max-width: 768px) {
+  .silium {
+    display: none;
+  }
+  .cashback__imagem {
+    display: flex;
+    margin: 0;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 30px;
+  }
+  #baixeApp {
+    height: 950px;
+  }
+}
+@media (max-width: 430px) {
+  .notebook {
+    width: 450px;
+    height: 500px;
+  }
+  #baixeApp {
+    height: 800px;
+  }
+}
+
+// Media section Cliente
+@media (max-width: 430px) {
+  .container__cliente h2 {
+    width: 345px;
+    height: 56px;
+    font-size: 24px;
+  }
+  .cliente {
+    width: 100%;
+    height: 460px;
+  }
+  .caixa__branca {
+    width: 280px;
+    height: 84px;
+  }
+  .container__cliente h1 {
+    font-size: 24px;
+  }
+  .container__cliente p {
+    font-size: 16px;
+    padding-bottom: 10px;
+  }
+  .container__cliente {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 0;
+  }
+  .container__cliente h3 {
+    font-size: 16px;
+  }
+}

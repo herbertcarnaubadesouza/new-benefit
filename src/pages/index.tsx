@@ -6,6 +6,8 @@ import Footer from "../pages/components/footer/footer";
 import Header from "../pages/components/header/header";
 import SectionApp from "../pages/components/sectionApp/sectionApp";
 import SectionCalculadora from "../pages/components/sectionCalculadora/sectionCalculadora";
+import CarroselBanner from "./components/CarroselBanner/Index";
+import CarrroselMobile from "../pages/components/CarrroselMobile/Index";
 
 export default function Home() {
   return (
