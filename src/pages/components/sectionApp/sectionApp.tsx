@@ -15,7 +15,7 @@ const Baixe = () => {
           </div>
         </div>
         <div className="container__imagem">
-          {/* <Image src={Celular} className="celular" alt="Celular" /> */}
+          <img src="/celular.png" className="celular" alt="Celular" />
         </div>
       </div>
     </section>

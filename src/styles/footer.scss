@@ -5,12 +5,22 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  height: 425px;
   background: #000000;
   box-shadow: 0px -4px 4px rgba(0, 0, 0, 0.25);
-
   bottom: 0;
 }
+
+.content-footer {
+  max-width: 1300px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: 4rem;
+  padding-block: 100px;
+}
+
 .Logo-Footer {
   display: flex;
   flex-direction: column;
@@ -21,7 +31,8 @@
 .logo-Escura {
   width: 272px;
   height: 84px;
-  margin: 41px 0px 0px 340px;
+  object-fit: cover;
+  margin-bottom: 27px;
 }
 
 .Slogan {
@@ -32,15 +43,18 @@
   font-weight: 400;
   font-size: 24px;
   line-height: 28px;
-  margin: 27px 0px 177px 355px;
 
   color: #ffffff;
 }
 .Contato-Footer {
   display: flex;
-  align-items: center;
   flex-direction: column;
-  width: 45%;
+}
+
+.logo-footer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .Contato-Footer h2 {
   width: 263px;
@@ -51,14 +65,12 @@
   font-size: 32px;
   line-height: 38px;
   color: #08d40a;
-  margin: 45px 487px 42px 0;
 }
 
 .listaContato-Footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0px 487px 99px 200px;
   flex-direction: column;
   width: 446px;
   height: 161;
@@ -89,6 +101,6 @@
   margin-right: 16px;
 }
 .Icon-Footer-duvidas {
-  margin-left: 26px;
+  // margin-left: 26px;
   margin-right: 16px;
 }

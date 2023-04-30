@@ -2,10 +2,11 @@ import Image from "next/image";
 
 // Criacao Slide
 
-import { FreeMode } from "swiper";
+import { Autoplay, Navigation, Pagination } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Primeiro banner
@@ -32,13 +33,16 @@ function carrosel() {
     <div className="container-carrosel">
       <div className="slide-carrosel">
         <Swiper
-          freeMode={true}
           grabCursor={true}
-          modules={[FreeMode]}
+          modules={[Autoplay, Navigation, Pagination]}
           className="mySwiper"
           slidesPerView={3}
           spaceBetween={30}
-          loop={false}
+          loop={true}
+          loopedSlides={5} // Add this prop
+          autoplay={{
+            delay: 3000,
+          }}
         >
           <SwiperSlide>
             <div className="carrosel-saude">
@@ -168,6 +172,102 @@ function carrosel() {
             <div className="carrosel-tecnologia">
               <Image className="frist-icon" src={logoHouse} alt="" />
               <h2>Tem Mais Tecnologia</h2>
+              <p>
+                Na hora de renova sua casa,
+                <br /> aqui você encontra os
+                <br />
+                melhores preços e opções!
+              </p>
+              <div className="carrosel-icon">
+                <Image
+                  className="primeiro-logo-conforto"
+                  src={brastemp}
+                  alt=""
+                />
+                <Image className="segungo-logo-conforto" src={kitchen} alt="" />
+              </div>
+              <div className="carrosel-icon">
+                <Image
+                  className="terceiro-logo-conforto"
+                  src={polishop}
+                  alt=""
+                />
+                <Image className="quarto-logo-conforto" src={oster} alt="" />
+              </div>
+              <div>
+                <button> ATÉ 40% DE DESCONTO </button>
+              </div>
+              <h4>*Consulte as condições no site.</h4>
+            </div>
+          </SwiperSlide>
+          <SwiperSlide>
+            <div className="carrosel-conforto">
+              <Image className="frist-icon" src={logoHouse} alt="" />
+              <h2>Tem Mais Conforto</h2>
+              <p>
+                Na hora de renova sua casa,
+                <br /> aqui você encontra os
+                <br />
+                melhores preços e opções!
+              </p>
+              <div className="carrosel-icon">
+                <Image
+                  className="primeiro-logo-conforto"
+                  src={brastemp}
+                  alt=""
+                />
+                <Image className="segungo-logo-conforto" src={kitchen} alt="" />
+              </div>
+              <div className="carrosel-icon">
+                <Image
+                  className="terceiro-logo-conforto"
+                  src={polishop}
+                  alt=""
+                />
+                <Image className="quarto-logo-conforto" src={oster} alt="" />
+              </div>
+              <div>
+                <button> ATÉ 40% DE DESCONTO </button>
+              </div>
+              <h4>*Consulte as condições no site.</h4>
+            </div>
+          </SwiperSlide>
+          <SwiperSlide>
+            <div className="carrosel-conforto">
+              <Image className="frist-icon" src={logoHouse} alt="" />
+              <h2>Tem Mais Conforto</h2>
+              <p>
+                Na hora de renova sua casa,
+                <br /> aqui você encontra os
+                <br />
+                melhores preços e opções!
+              </p>
+              <div className="carrosel-icon">
+                <Image
+                  className="primeiro-logo-conforto"
+                  src={brastemp}
+                  alt=""
+                />
+                <Image className="segungo-logo-conforto" src={kitchen} alt="" />
+              </div>
+              <div className="carrosel-icon">
+                <Image
+                  className="terceiro-logo-conforto"
+                  src={polishop}
+                  alt=""
+                />
+                <Image className="quarto-logo-conforto" src={oster} alt="" />
+              </div>
+              <div>
+                <button> ATÉ 40% DE DESCONTO </button>
+              </div>
+              <h4>*Consulte as condições no site.</h4>
+            </div>
+          </SwiperSlide>
+          <SwiperSlide>
+            <div className="carrosel-conforto">
+              <Image className="frist-icon" src={logoHouse} alt="" />
+              <h2>Tem Mais Conforto</h2>
               <p>
                 Na hora de renova sua casa,
                 <br /> aqui você encontra os
