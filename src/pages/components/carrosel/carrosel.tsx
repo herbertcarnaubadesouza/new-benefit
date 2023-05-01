@@ -97,7 +97,7 @@ function carrosel() {
               <div className="carrosel-icon">
                 <Image
                   className="primeiro-logo-Educacao"
-                  src={UniMais}
+                  src={UniMaisImage}
                   alt="logo-UniMais"
                 />
                 <Image

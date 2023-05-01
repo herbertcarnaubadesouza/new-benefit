@@ -103,7 +103,7 @@ function CarrroselMobile() {
               <div className="carrosel-icon">
                 <Image
                   className="primeiro-logo-Educacao"
-                  src={UniMais}
+                  src={UniMaisImage}
                   alt="logo-UniMais"
                 />
                 <Image
@@ -115,7 +115,7 @@ function CarrroselMobile() {
               <div className="carrosel-icon">
                 <Image
                   className="terceiro-logo-Educacao"
-                  src={camColegio}
+                  src={camColegioImage}
                   alt="logo-camColegio"
                 />
                 <Image
