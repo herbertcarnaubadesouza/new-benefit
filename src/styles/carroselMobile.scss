@@ -1,0 +1,54 @@
+// Estilo carrosel Mobile
+@media (max-width: 768px) {
+  .swiper-pagination-bullet {
+    --swiper-pagination-color: #08d40a;
+  }
+
+  .container-carrosel {
+    margin: 0;
+    height: 1000px;
+  }
+  .slide-carrosel {
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 440px;
+    height: 100%;
+  }
+  .carrosel-saude,
+  .carrosel-conforto,
+  .carrosel-educacao {
+    margin: 0 auto;
+    width: 90%;
+    height: 835px;
+    margin-bottom: 50px;
+  }
+}
+@media (max-width: 430px) {
+  .carrosel-saude,
+  .carrosel-conforto,
+  .carrosel-educacao {
+    margin: 0 auto;
+    width: 85%;
+    height: 835px;
+    margin-bottom: 50px;
+  }
+
+  .slide-carrosel {
+    width: 380px;
+  }
+}
+@media (max-width: 370px) {
+  .slide-carrosel {
+    width: 320px;
+  }
+  .carrosel-saude,
+  .carrosel-conforto,
+  .carrosel-tecnologia,
+  .carrosel-educacao {
+    width: 95%;
+    height: 835px;
+    margin-left: 15px;
+  }
+}

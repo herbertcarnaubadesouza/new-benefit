@@ -11,7 +11,7 @@ import Image from "next/image";
 
 function CarroselBanner() {
   return (
-    <div className="container-carroselBanner">
+    <div className="container-carroselBanner " id="inicio">
       <div className="main-carroselBanner">
         <Swiper
           grabCursor={true}
@@ -42,19 +42,18 @@ function CarroselBanner() {
             </div>
           </SwiperSlide>
           <SwiperSlide>
-            <div className="div-slide">
+            <div className="div-slide-doblo">
               <a href="#">
                 <Image className="banner1" src={Banner2} alt="Banner-BeneFit" />
               </a>
             </div>
-          </SwiperSlide>
-          <SwiperSlide>
-            <div className="div-slide">
+            <div className="div-slide-doblo">
               <a href="#">
                 <Image className="banner1" src={Banner3} alt="Banner-BeneFit" />
               </a>
             </div>
           </SwiperSlide>
+
           <div className="swiper-pagination"></div>
         </Swiper>
       </div>

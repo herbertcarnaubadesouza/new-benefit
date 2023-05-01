@@ -1,0 +1,103 @@
+.baixe {
+  // display: none;
+  width: 100%;
+  height: 680px;
+  display: flex;
+  background-image: url("/back-img-carrosel.png");
+  max-width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.botao {
+  display: inline-block;
+  margin-right: 17px;
+}
+
+.container__imagem {
+  width: 616px;
+  // padding-top: 47px;
+  max-width: 100%;
+  display: flex;
+  object-fit: cover;
+  justify-content: center;
+}
+
+.cashback__imagem {
+  width: 816px;
+  height: 612px;
+  padding-top: 47px;
+  max-width: 100%;
+  display: flex;
+  position: relative; /* adicionado */
+
+  @media screen and (max-width: 1440px) {
+    width: 650px;
+    margin-left: -250px;
+  }
+}
+
+.silium {
+  width: 296px;
+  height: 178px;
+  filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.25));
+  transform: rotate(7.09deg);
+  position: absolute; /* adicionado */
+  top: 50%; /* ajuste a posição vertical */
+  left: 50%; /* centralizado na horizontal */
+  margin-top: -55px; /* metade da altura da imagem do logo */
+  margin-left: 30px; /* metade da largura da imagem do logo */
+  z-index: 1; /* para que a imagem do logo fique em cima da imagem do notebook */
+}
+
+// Media sectionApp
+@media (max-width: 768px) {
+  .baixe {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 725px;
+  }
+  .container__descricao {
+    margin: 0px;
+    margin-top: 20px;
+  }
+  .container__descricao h2 {
+    font-size: 35px;
+  }
+  .container__descricao p {
+    font-size: 22px;
+  }
+  .container__descricao h2 {
+    margin-top: 10px;
+  }
+  .container__imagem img {
+    width: 90%;
+    height: 90%;
+    margin-top: 39px;
+    object-fit: cover;
+  }
+  .container__descricao > div > img {
+    width: 141px;
+    height: 43px;
+  }
+}
+
+@media (max-width: 430px) {
+  .baixe {
+    height: 620px;
+  }
+  .container__descricao h2 {
+    font-size: 30px;
+  }
+  .container__descricao p {
+    font-size: 22px;
+    text-align: center;
+  }
+  .container__descricao .botao {
+    width: 120px;
+  }
+}

@@ -1,0 +1,194 @@
+.cliente {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  width: 100%;
+  max-width: 1920px;
+  height: 649px;
+  position: relative;
+  overflow: hidden;
+}
+
+.image-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("/mulher.png");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+  z-index: -1;
+}
+
+.image-wrapper:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(
+    0,
+    128,
+    0,
+    0.5
+  ); /* Change the color and opacity as needed */
+  z-index: -1; /* To ensure the green background is behind the content */
+}
+
+.container__cliente {
+  position: relative;
+  z-index: 1;
+}
+.caixa__branca {
+  width: 592px;
+  height: 146px;
+  background: #ffffff;
+  box-shadow: 0px 0px 4px 5px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-inline: 38px;
+}
+
+.container__cliente h2 {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 00;
+  font-size: 36px;
+  line-height: 42px;
+  max-width: 540px;
+
+  color: #ffffff;
+  margin: 0 auto;
+  margin-bottom: 39px;
+}
+
+.container__cliente h1 {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 56px;
+
+  color: #08d40a;
+}
+
+.container__cliente p {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 28px;
+  text-align: center;
+
+  color: #000000;
+}
+
+.container__cliente h3 {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 39px;
+  text-align: center;
+
+  color: #ffffff;
+  margin-top: 39px;
+}
+
+.botao__cliente {
+  align-items: center;
+  width: 294px;
+  height: 55px;
+
+  margin-top: 39px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 21px;
+
+  color: #08d40a;
+
+  background: #ffffff;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+}
+// Media section Cliente
+@media (max-width: 768px) {
+  .image-wrapper {
+    background-attachment: scroll;
+  }
+  #cliente {
+    height: 450px;
+  }
+  .container__cliente h2 {
+    width: 345px;
+    height: 56px;
+    left: 305px;
+    top: 47px;
+
+    font-family: "Roboto";
+    font-style: normal;
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 28px;
+    text-align: center;
+    margin-bottom: 22px;
+    color: #ffffff;
+  }
+
+  .caixa__branca {
+    width: 80%;
+    height: 84px;
+    margin: 0 auto;
+  }
+  .container__cliente h1 {
+    font-size: 30px;
+  }
+  .container__cliente p {
+    font-size: 14px;
+    padding-bottom: 10px;
+  }
+  .container__cliente h3 {
+    font-size: 20px;
+    margin-top: 15px;
+  }
+  .botao__cliente {
+    width: 290px;
+    margin-top: 10px;
+  }
+}
+@media (max-width: 430px) {
+  #cliente {
+    height: 400px;
+    width: 100%;
+  }
+  .caixa__branca {
+    width: 280px;
+    height: 84px;
+  }
+  .container__cliente h1 {
+    font-size: 24px;
+  }
+
+  .container__cliente {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin: 0;
+  }
+  .container__cliente h3 {
+    font-size: 16px;
+  }
+  .botao__cliente {
+    width: 240px;
+  }
+}

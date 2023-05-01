@@ -8,14 +8,15 @@ import SectionApp from "../pages/components/sectionApp/sectionApp";
 import SectionCalculadora from "../pages/components/sectionCalculadora/sectionCalculadora";
 import CarroselBanner from "./components/CarroselBanner/Index";
 import CarrroselMobile from "../pages/components/CarrroselMobile/Index";
+import HeaderMobile from "../pages/components/headerMobile/Index";
 
 export default function Home() {
   return (
     <div className="global">
       <section>
-        <Header />
-        <Banner />
-        <Carrosel />
+        <HeaderMobile />
+        <CarroselBanner />
+        <CarrroselMobile />
         <Cliente />
         <CashBack />
         <SectionCalculadora />

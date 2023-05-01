@@ -1,10 +1,10 @@
 const Cliente = () => {
   return (
     <section>
-      <div className="cliente">
+      <div className="cliente" id="cliente">
         <div className="image-wrapper"></div>
         <div className="container__cliente">
-          <h2>O MAIOR CLUBE DE VANTAGENS DA AMÉRICA LATINA</h2>
+          <h2>O Maior Clube de Vantagens da América Latina </h2>
           <div className="caixa__branca">
             <div className="content-block-caixa">
               <h1>+17.500 </h1>
