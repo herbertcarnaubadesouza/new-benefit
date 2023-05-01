@@ -1,3 +1,4 @@
+import Carrosel from "./components/carrosel/carrosel";
 import Banner from "../pages/components/banners/banners";
 import CashBack from "../pages/components/cashback/cashback";
 import Cliente from "../pages/components/cliente/cliente";
