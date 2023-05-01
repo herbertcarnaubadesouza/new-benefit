@@ -75,6 +75,11 @@
   flex-direction: column;
   width: 446px;
   height: 161;
+
+  @media only screen and (max-width: 768px){
+    width: 100%;
+    align-items: flex-start;
+  }
 }
 .Contato-Footer h3 {
   width: 446px;
@@ -86,6 +91,10 @@
   line-height: 23px;
 
   color: #ffffff;
+
+  @media only screen and (max-width: 768px){
+    width: 100%;
+  }
 }
 
 .listaContato-Footer div {

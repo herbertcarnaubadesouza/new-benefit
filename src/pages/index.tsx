@@ -1,5 +1,4 @@
 import Banner from "../pages/components/banners/banners";
-import Carrosel from "../pages/components/carrosel/carrosel";
 import CashBack from "../pages/components/cashback/cashback";
 import Cliente from "../pages/components/cliente/cliente";
 import Footer from "../pages/components/footer/footer";
@@ -9,7 +8,6 @@ import SectionCalculadora from "../pages/components/sectionCalculadora/sectionCa
 import CarroselBanner from "./components/CarroselBanner/Index";
 import CarrroselMobile from "../pages/components/CarrroselMobile/Index";
 import HeaderMobile from "../pages/components/headerMobile/Index";
-
 export default function Home() {
   return (
     <div className="global">
