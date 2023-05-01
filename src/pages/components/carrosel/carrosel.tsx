@@ -109,7 +109,7 @@ function carrosel() {
               <div className="carrosel-icon">
                 <Image
                   className="terceiro-logo-Educacao"
-                  src={camColegio}
+                  src={camColegioImage}
                   alt="logo-camColegio"
                 />
                 <Image
