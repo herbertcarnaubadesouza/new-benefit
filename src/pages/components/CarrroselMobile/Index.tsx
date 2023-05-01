@@ -29,7 +29,7 @@ import polishop from "../../../../public/polisho.png";
 
 function CarrroselMobile() {
   return (
-    <div className="container-carrosel">
+    <div className="container-carrosel-mobile">
       <div className="slide-carrosel">
         <Swiper
           grabCursor={true}

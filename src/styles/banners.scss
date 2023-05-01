@@ -11,9 +11,7 @@
   padding-bottom: 50px;
 
   @media only screen and (max-width: 768px) {
-    justify-content: center;
-    align-items: center;
-    display: flex;
+    display: none;
   }
 
   .banner1 {
