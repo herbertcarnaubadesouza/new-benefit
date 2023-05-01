@@ -14,8 +14,8 @@ import cardiogram from "../../../../public/cardiogram.png";
 import imgAbraco from "../../../../public/imgAbraço.png";
 import metrica from "../../../../public/metrica.png";
 // Segundo banner
-import UniMais from "../../../../public/UniMais.png";
-import camColegio from "../../../../public/camColegio.png";
+import UniMaisImage from "/public/UniMais.png";
+import camColegioImage from "/public/camColegio.png";
 import logoEducacao from "../../../../public/logoEducacao.png";
 import proInvesti from "../../../../public/proInvest.png";
 import terceiroAncar from "../../../../public/terceiroAncar.png";
