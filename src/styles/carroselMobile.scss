@@ -1,3 +1,192 @@
+/* Estilo Carrosel*/
+.mySwiper {
+  padding: 0;
+  margin: 0;
+}
+
+.container-carrosel-mobile {
+  background-image: url("/back-img-carrosel.png");
+  background-repeat: no-repeat; /* Impede a repetição da imagem */
+  width: 100%;
+  background-size: cover;
+  height: 878px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.slide-carrosel {
+  width: 1298px;
+  margin: 26px 315px 46px 310px;
+  height: 806px;
+  background-color: transparent;
+}
+.frist-icon {
+  width: 100px;
+  height: 100px;
+  margin: 38px 140px 0px 140px;
+}
+.container-carrosel-mobile p {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 23px;
+  text-align: center;
+  margin: 14px 51px 0px 52px;
+  color: #000000;
+}
+.container-carrosel-mobile h2 {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 28px;
+  width: 217px;
+  height: 28px;
+
+  color: #08d40a;
+  margin: 14px 99px 14px 101px;
+}
+
+.carrosel-icon {
+  display: flex;
+}
+
+.primeiro-logo {
+  width: 100px;
+  height: 100px;
+  margin: 46px 77px 0px 52px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  border-radius: 50px;
+}
+.segungo-logo {
+  width: 100px;
+  height: 100px;
+  margin: 46px 51px 0px 0px;
+}
+
+.terceiro-logo {
+  width: 100px;
+  height: 100px;
+  margin: 46px 228px 48px 52px;
+  border-radius: 50px;
+}
+.primeiro-logo-Educacao {
+  width: 100px;
+  height: 100px;
+  margin: 46px 77px 0px 52px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  border-radius: 50px;
+}
+.segungo-logo-Educacao {
+  width: 100px;
+  height: 100px;
+  margin: 46px 51px 0px 0px;
+}
+.terceiro-logo-Educacao {
+  width: 100px;
+  height: 100px;
+  margin: 46px 78px 48px 52px;
+  border-radius: 50px;
+}
+.quarto-logo-Educacao {
+  width: 100px;
+  height: 30px;
+  margin: 81px 51px 0px 0px;
+}
+.primeiro-logo-conforto {
+  width: 100px;
+  height: 11px;
+  border-radius: 50px;
+  margin: 107px 77px 0px 51px;
+}
+.segungo-logo-conforto {
+  width: 100px;
+  height: 24px;
+  border-radius: 50px;
+  margin: 101px 52px 0px 0px;
+}
+.terceiro-logo-conforto {
+  width: 100px;
+  height: 52px;
+  border-radius: 50px;
+  margin: 121px 76px 66px 51px;
+}
+.quarto-logo-conforto {
+  width: 100px;
+  height: 83px;
+  border-radius: 50px;
+  margin: 91px 52px 0px 0px;
+}
+.container-carrosel-mobile button {
+  width: 277px;
+  height: 55px;
+  background: #08d40a;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 20px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 21px;
+  color: #ffffff;
+}
+.container-carrosel-mobile h4 {
+  margin-bottom: 30px;
+  margin-top: 22px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  /* identical to box height */
+
+  text-align: center;
+
+  color: #000000;
+}
+.carrosel-saude {
+  width: 380px;
+  height: 752px;
+  background: #ffffff;
+  box-shadow: 0px 4px 5px 5px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 23px 0px 31px 30px;
+}
+
+.carrosel-educacao {
+  width: 380px;
+  height: 752px;
+  background: #ffffff;
+  box-shadow: 0px 4px 5px 5px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 23px;
+  margin: 23px 47px 31px 15px;
+}
+.carrosel-tecnologia h2 {
+  width: 277px;
+  text-align: center;
+}
+.carrosel-conforto,
+.carrosel-tecnologia {
+  width: 380px;
+  height: 752px;
+  background: #ffffff;
+  box-shadow: 0px 4px 5px 5px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 23px;
+  margin: 23px 23px 31px 20px;
+}
+
 // Estilo carrosel Mobile
 
 @media (max-width: 768px) {
@@ -5,7 +194,7 @@
     --swiper-pagination-color: #08d40a;
   }
 
-  .container-carrosel {
+  .container-carrosel-mobile {
     margin: 0;
     height: 1000px;
   }
