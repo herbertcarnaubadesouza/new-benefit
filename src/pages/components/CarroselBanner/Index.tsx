@@ -1,4 +1,4 @@
-import React from "react";
+import Image from "next/image";
 import { Autoplay, Navigation, Pagination } from "swiper";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -7,10 +7,10 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import Banner1 from "../../../../public/banner01.png";
 import Banner2 from "../../../../public/banner02.png";
 import Banner3 from "../../../../public/banner03.png";
-import Image from "next/image";
 
 function CarroselBanner() {
   return (
+    <section className="banner-mobile">
     <div className="container-carroselBanner " id="inicio">
       <div className="main-carroselBanner">
         <Swiper
@@ -58,6 +58,7 @@ function CarroselBanner() {
         </Swiper>
       </div>
     </div>
+    </section>
   );
 }
 

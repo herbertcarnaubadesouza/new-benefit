@@ -1,8 +1,24 @@
 // Estilo carrosel Banners
+
+
+.banner-mobile{
+  display: none;
+
+  @media only screen and (max-width:768px){
+    display: block;
+  }
+}
+
+
 .container-carroselBanner {
   height: 500px;
   max-width: 768px;
   margin-top: 150px;
+
+  @media only screen and (max-width: 768px) {
+    margin-top: 125px;
+    height: 434px;
+  }
 }
 .main-carroselBanner {
   display: flex;

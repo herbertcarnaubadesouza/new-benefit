@@ -4,7 +4,7 @@ import Banner1 from "../../../../public/banner01.png";
 import Banner2 from "../../../../public/banner02.png";
 import Banner3 from "../../../../public/banner03.png";
 
-function banners() {
+function Banner() {
   return (
     <div className="container-banners">
       <div className="main-banner1">
@@ -24,4 +24,4 @@ function banners() {
   );
 }
 
-export default banners;
+export default Banner;
