@@ -1,0 +1,20 @@
+#headerLogin {
+  display: flex;
+  height: 70px;
+}
+@media (max-width: 768px) {
+  #headerLogin {
+    flex-direction: row-reverse;
+  }
+  #headerLogin img {
+    margin: 0;
+  }
+  #headerLogin img {
+    margin: 0;
+    padding-right: 35px;
+  }
+  #headerLogin > .nav-toggle {
+    margin: 0;
+    padding-left: 35px;
+  }
+}
