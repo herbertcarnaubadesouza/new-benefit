@@ -1,14 +1,11 @@
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
-import Home from "../pages/Home/Index";
+import Home from "../pages/Pages/Home/Home";
+import Login from "../pages/Pages/Login/Login";
 
 export default function Index() {
   return (
     <div className="Global">
-      <Router>
-        <Routes>
-          <Route path="/" element={<Home />} />
-        </Routes>
-      </Router>
+      <Home />
+      <Login />
     </div>
   );
 }
