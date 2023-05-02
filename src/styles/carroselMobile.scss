@@ -10,9 +10,14 @@
   width: 100%;
   background-size: cover;
   height: 878px;
-  display: flex;
+  display: none;
   align-items: center;
   justify-content: center;
+
+
+  @media only screen and (max-width: 768px) {
+    display: flex;
+  }
 }
 
 .container-carrosel-mobile p {

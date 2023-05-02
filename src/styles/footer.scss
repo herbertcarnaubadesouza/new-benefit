@@ -53,9 +53,13 @@
 
 .logo-footer-container {
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   width: 100%;
+
+  @media only screen and (max-width: 768px){
+    justify-content: center;
+  }
 }
 .Contato-Footer h2 {
   width: 263px;

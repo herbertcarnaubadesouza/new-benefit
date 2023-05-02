@@ -28,7 +28,7 @@ import logoHouse from "../../../../public/logoHouse.png";
 import oster from "../../../../public/oster.png";
 import polishop from "../../../../public/polisho.png";
 
-function carrosel() {
+function Carrossel() {
   return (
     <div className="container-carrosel">
       <div className="slide-carrosel">
@@ -171,4 +171,4 @@ function carrosel() {
   );
 }
 
-export default carrosel;
+export default Carrossel;
