@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-// Criacao Slide
+// Criacao Slid
 
 import { Autoplay, Navigation, Pagination } from "swiper";
 import "swiper/css";
@@ -37,7 +37,7 @@ function CarrroselMobile() {
           className="mySwiper"
           slidesPerView={1}
           spaceBetween={30}
-          loop={false}
+          loop={true}
           loopedSlides={5}
           autoplay={{
             delay: 3000,
