@@ -56,11 +56,11 @@ function CadastroLogin() {
                   <div className="city">
                     <label>
                       <p>UF</p>
-                      <input type="text" name="telefone" />
+                      <input type="text" name="uf" />
                     </label>
                     <label className="cidade">
                       <p>Cidade</p>
-                      <input type="text" name="telefone" />
+                      <input type="text" name="cidade" />
                     </label>
                   </div>
                   <label>
