@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import Password from "../InputPassword/Index";
 import Logo from "../../../../public/logoClara.svg";
 
 function CadastroLogin() {
@@ -69,7 +70,7 @@ function CadastroLogin() {
                   </label>
                   <label>
                     <p>Senha</p>
-                    <input type="password" name="senha" />
+                    <Password />
                   </label>
                   <button>Cadastar</button>
                 </div>

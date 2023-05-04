@@ -159,6 +159,21 @@ form button {
 
   color: #ffffff;
 }
+// Component senha
+.password-input {
+  position: relative;
+  width: 100%;
+}
+
+.password-input .icon {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  cursor: pointer;
+  margin-right: 10px;
+}
+
 @media (max-width: 1850px) {
   .city .cidade {
     margin-top: 5px;
