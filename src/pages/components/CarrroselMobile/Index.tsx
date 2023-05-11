@@ -9,24 +9,24 @@ import "swiper/css/pagination";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Primeiro banner
-import boaCompanhia from "../../../../public/boacompanhia.png";
-import cardiogram from "../../../../public/cardiogram.png";
-import imgAbraco from "../../../../public/imgAbraço.png";
-import metrica from "../../../../public/metrica.png";
+import boaCompanhia from "./boacompanhia.png";
+import cardiogram from "./cardiogram.png";
+import imgAbraco from "./imgAbraço.png";
+import metrica from "./metrica.png";
 // Segundo banner
-import UniMaisImage from "../../../../public/UniMais.png";
-import camColegioImage from "../../../../public/camColegio.png";
+import UniMaisImage from "./UniMais.png";
+import camColegioImage from "./camColegio.png";
 
-import logoEducacao from "../../../../public/logoEducacao.png";
-import proInvesti from "../../../../public/proInvest.png";
-import terceiroAncar from "../../../../public/terceiroAncar.png";
+import logoEducacao from "./logoEducacao.png";
+import proInvesti from "./proInvest.png";
+import terceiroAncar from "./terceiroAncar.png";
 
 // Terceiro banner
-import brastemp from "../../../../public/brastemp.png";
-import kitchen from "../../../../public/kitchen.png";
-import logoHouse from "../../../../public/logoHouse.png";
-import oster from "../../../../public/oster.png";
-import polishop from "../../../../public/polisho.png";
+import brastemp from "./brastemp.png";
+import kitchen from "./kitchen.png";
+import logoHouse from "./logoHouse.png";
+import oster from "./oster.png";
+import polishop from "./polisho.png";
 
 function CarrroselMobile() {
   return (
