@@ -46,9 +46,9 @@ function Carrossel() {
         >
           <SwiperSlide>
             <div className="carrosel-saude">
-              <Image
+              <img
                 className="frist-icon"
-                src={cardiogram}
+                src="./cardiogram.png"
                 alt="logo-cardiogram"
               />
               <h2>Tem Mais Saúde</h2>
@@ -57,21 +57,21 @@ function Carrossel() {
                 <br /> drogarias e farmácias por todo <br /> o Brasil.
               </p>
               <div className="carrosel-icon">
-                <Image
+                <img
                   className="primeiro-logo"
-                  src={imgAbraco}
+                  src="./imgAbraço.png"
                   alt="logo-Abraco"
                 />
-                <Image
+                <img
                   className="segungo-logo"
-                  src={boaCompanhia}
+                  src="./boacompanhia.png"
                   alt="logo-boaCompanhia"
                 />
               </div>
               <div className="carrosel-icon">
-                <Image
+                <img
                   className="terceiro-logo"
-                  src={metrica}
+                  src="./metrica.png"
                   alt="logo-metrica"
                 />
               </div>
@@ -83,9 +83,9 @@ function Carrossel() {
           </SwiperSlide>
           <SwiperSlide>
             <div className="carrosel-educacao">
-              <Image
+              <img
                 className="frist-icon"
-                src={logoEducacao}
+                src="./logoEducacao.png"
                 alt="logo-Educacao"
               />
               <h2>Tem mais Educação</h2>
@@ -96,26 +96,26 @@ function Carrossel() {
                 <br /> Seus filhos merecem o melhor!
               </p>
               <div className="carrosel-icon">
-                <Image
+                <img
                   className="primeiro-logo-Educacao"
-                  src={UniMaisImage}
+                  src="./UniMais.png"
                   alt="logo-UniMais"
                 />
-                <Image
+                <img
                   className="segungo-logo-Educacao"
-                  src={terceiroAncar}
+                  src="./terceiroAncar.png"
                   alt="logo-terceiroAncar"
                 />
               </div>
               <div className="carrosel-icon">
-                <Image
+                <img
                   className="terceiro-logo-Educacao"
-                  src={camColegioImage}
+                  src="./camColegio.png"
                   alt="logo-camColegio"
                 />
-                <Image
+                <img
                   className="quarto-logo-Educacao"
-                  src={proInvesti}
+                  src="./proInvest.png"
                   alt="logo-proInvesti"
                 />
               </div>
@@ -127,7 +127,7 @@ function Carrossel() {
           </SwiperSlide>
           <SwiperSlide>
             <div className="carrosel-conforto">
-              <Image className="frist-icon" src={logoHouse} alt="logo-House" />
+              <img className="frist-icon" src="./logoHouse.png" alt="logo-House" />
               <h2>Tem Mais Conforto</h2>
               <p>
                 Na hora de renova sua casa,
@@ -138,24 +138,24 @@ function Carrossel() {
               <div className="carrosel-icon">
                 <Image
                   className="primeiro-logo-conforto"
-                  src={brastemp}
+                  src="./brastemp.png"
                   alt="logo-brastemp"
                 />
                 <Image
                   className="segungo-logo-conforto"
-                  src={kitchen}
+                  src="./kitchen.png"
                   alt="logo-kitchen"
                 />
               </div>
               <div className="carrosel-icon">
                 <Image
                   className="terceiro-logo-conforto"
-                  src={polishop}
+                  src="./polisho.png"
                   alt="logo-polishop"
                 />
                 <Image
                   className="quarto-logo-conforto"
-                  src={oster}
+                  src="./oster.png"
                   alt="logo-oster"
                 />
               </div>
