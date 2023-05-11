@@ -27,7 +27,7 @@ function CadastroLogin() {
     data.append('scope', 'login:api');
 
     try {
-      const response = await axios.post('https://apiv4homologacao.marktclub.net.br/token', data, {
+      const response = await axios.post('https://cors-anywhere.herokuapp.com/https://apiv4homologacao.marktclub.net.br/token', data, {
         headers: {
           'Content-Type': 'application/x-www-form-urlencoded',
         },
