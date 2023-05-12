@@ -5,7 +5,7 @@ import Logo from "../../../../public/silium.png";
 const Cashback = () => {
   return (
     <section>
-      <div className="baixe" id="baixeApp">
+      <div className="baixeCash" id="baixeApp">
         <div className="container__descricao">
           <h2> Sistema de cashback</h2>
           <p>Compre e ganhe parte do seu dinheiro de volta com pontos Silium</p>

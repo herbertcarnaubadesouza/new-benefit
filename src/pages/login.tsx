@@ -1,4 +1,4 @@
-import CadastroLogin from "./components/cadastroLogin/Index";
+import CadastroLogin from "./components/CadastroLogin/Index";
 import Header from "./components/header/header";
 import HeaderMobile from "./components/headerMobile/Index";
 

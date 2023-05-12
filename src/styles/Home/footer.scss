@@ -26,6 +26,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  margin-top: -5rem;
 }
 
 .logo-Escura {
@@ -46,9 +47,11 @@
 
   color: #ffffff;
 }
+
 .Contato-Footer {
   display: flex;
   flex-direction: column;
+  justify-content: flex-start;
 }
 
 .logo-footer-container {
@@ -57,10 +60,11 @@
   align-items: center;
   width: 100%;
 
-  @media only screen and (max-width: 768px){
+  @media only screen and (max-width: 768px) {
     justify-content: center;
   }
 }
+
 .Contato-Footer h2 {
   width: 263px;
   height: 38px;
@@ -70,6 +74,8 @@
   font-size: 32px;
   line-height: 38px;
   color: #08d40a;
+  margin-bottom: 15px;
+  margin-left: -1.1rem;
 }
 
 .listaContato-Footer {
@@ -80,11 +86,12 @@
   width: 446px;
   height: 161;
 
-  @media only screen and (max-width: 768px){
+  @media only screen and (max-width: 768px) {
     width: 100%;
     align-items: flex-start;
   }
 }
+
 .Contato-Footer h3 {
   width: 446px;
 
@@ -96,7 +103,7 @@
 
   color: #ffffff;
 
-  @media only screen and (max-width: 768px){
+  @media only screen and (max-width: 768px) {
     width: 100%;
   }
 }
@@ -114,6 +121,7 @@
   height: 24px;
   margin-right: 16px;
 }
+
 .Icon-Footer-duvidas {
   // margin-left: 26px;
   margin-right: 16px;
@@ -131,6 +139,7 @@
     margin-top: 25px;
     height: 600px;
   }
+
   .Contato-Footer {
     text-align: center;
     display: flex;
@@ -139,18 +148,22 @@
     justify-content: center;
     height: 50%;
   }
+
   .Contato-Footer h3 {
     font-size: 14px;
     width: 220px;
   }
+
   .Contato-Footer h2 {
     font-size: 27px;
     margin: 30px 0px;
   }
+
   .Slogan {
     font-size: 20px;
     text-align: center;
   }
+
   .listaContato-Footer {
     width: 100%;
   }

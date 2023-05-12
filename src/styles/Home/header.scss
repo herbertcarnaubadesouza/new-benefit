@@ -9,6 +9,7 @@
   z-index: 9999;
   height: 70px;
   width: 100%;
+
   @media only screen and (max-width: 768px) {
     display: none;
   }
@@ -16,6 +17,8 @@
 
 .nav-items-desktop {
   display: flex;
+  justify-content: center;
+  align-items: center;
   gap: 30px;
 }
 

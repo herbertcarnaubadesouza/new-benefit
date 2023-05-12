@@ -3,7 +3,7 @@ import Image from "next/image";
 import NodeRSA from "node-rsa";
 import React from "react";
 import Logo from "../../../../public/logoClara.svg";
-import Password from "../InputPassword/Index";
+import Password from "../../components/InputPassword/Index";
 
 function CadastroLogin() {
   function encryptData(data: string, publicKey: string): string {

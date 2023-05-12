@@ -2,13 +2,26 @@
 $cor-titulo: #08d40a;
 $cor-texto: #000000;
 
+.baixeCash {
+  width: 100%;
+  height: 612px;
+  display: flex;
+  background-image: url("/back-img-carrosel.png");
+  max-width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 180px;
+}
+
 .container__descricao {
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
   margin-top: 20px;
-  margin-left: 230px;
+  margin-left: 0px;
 
   h2 {
     width: 258px;
@@ -86,7 +99,8 @@ $cor-texto: #000000;
   padding-top: 47px;
   max-width: 100%;
   display: flex;
-  position: relative; /* adicionado */
+  position: relative;
+  /* adicionado */
 
   @media screen and (max-width: 1440px) {
     width: 650px;
@@ -99,18 +113,26 @@ $cor-texto: #000000;
   height: 178px;
   filter: drop-shadow(0px 0px 4px rgba(0, 0, 0, 0.25));
   transform: rotate(7.09deg);
-  position: absolute; /* adicionado */
-  top: 50%; /* ajuste a posição vertical */
-  left: 50%; /* centralizado na horizontal */
-  margin-top: -55px; /* metade da altura da imagem do logo */
-  margin-left: 30px; /* metade da largura da imagem do logo */
-  z-index: 1; /* para que a imagem do logo fique em cima da imagem do notebook */
+  position: absolute;
+  /* adicionado */
+  top: 50%;
+  /* ajuste a posição vertical */
+  left: 50%;
+  /* centralizado na horizontal */
+  margin-top: -55px;
+  /* metade da altura da imagem do logo */
+  margin-left: 30px;
+  /* metade da largura da imagem do logo */
+  z-index: 1;
+  /* para que a imagem do logo fique em cima da imagem do notebook */
 }
+
 // Media section cashback
 @media (max-width: 768px) {
   .silium {
     display: none;
   }
+
   .cashback__imagem {
     display: flex;
     margin: 0;
@@ -119,6 +141,7 @@ $cor-texto: #000000;
     justify-content: center;
     width: 100%;
   }
+
   #baixeApp {
     height: 750px;
   }
@@ -139,6 +162,7 @@ $cor-texto: #000000;
 
     color: #08d40a;
   }
+
   #baixeApp p {
     font-family: "Roboto";
     font-style: normal;
@@ -149,6 +173,7 @@ $cor-texto: #000000;
 
     color: #000000;
   }
+
   .notebook {
     width: 90%;
     height: 80%;
@@ -156,12 +181,14 @@ $cor-texto: #000000;
     object-fit: contain;
   }
 }
+
 @media (max-width: 430px) {
   .notebook {
     width: 90%;
     height: 90%;
     padding: 0;
   }
+
   #baixeApp {
     height: 680px;
   }
