@@ -1,4 +1,3 @@
-import axios from "axios";
 import Image from "next/image";
 import React from "react";
 import Logo from "../../../../public/logoClara.svg";
@@ -15,11 +14,8 @@ function CadastroLogin() {
       });
 
       const data = await response.json();
-      const accessToken = data.dado.access_token;
 
-      console.log(response);
-
-      console.log("Access Token:", accessToken);
+      const accessToken = data.accessToken;
 
       const nome = (document.getElementById("name") as HTMLInputElement).value;
       const cpf = (document.getElementById("cpf") as HTMLInputElement).value;
@@ -55,9 +51,8 @@ function CadastroLogin() {
         body: JSON.stringify({ data }),
       });
 
-      console.log(response);
-
       const { encrypted } = await response.json();
+
       return encrypted;
     } catch (error) {
       console.error("Erro ao encriptar os dados:", error);
@@ -72,8 +67,8 @@ function CadastroLogin() {
     telefone: string
   ) {
     try {
-      const response = await fetch('/api/login', {
-        method: 'POST',
+      const response = await fetch("/api/login", {
+        method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
@@ -86,18 +81,11 @@ function CadastroLogin() {
         }),
       });
 
-      console.log(response)
+      const data = await response.json();
 
-      if (response.ok) {
-        const data = await response.json();
-        if (data && data.link) {
-          window.location.replace(data.link);
-        } else {
-          console.error("A resposta não contém o link necessário");
-        }
-      } else {
-        console.error("Erro ao realizar login:", response.statusText);
-      }
+      console.log(data);
+
+      window.location.replace(data.link);
     } catch (error) {
       console.error("Erro ao realizar login:", error);
     }

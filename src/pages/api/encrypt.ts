@@ -1,4 +1,4 @@
-import { publicEncrypt } from 'crypto';
+import { constants, publicEncrypt } from 'crypto';
 
 const publicKey = `-----BEGIN PUBLIC KEY-----
 MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAus5uZwjciomLuvoyqQ4D
@@ -15,7 +15,10 @@ export default function handler(req: any, res: any) {
         const { data } = req.body;
 
         const buffer = Buffer.from(data);
-        const encrypted = publicEncrypt(publicKey, buffer);
+        const encrypted = publicEncrypt({
+            key: publicKey,
+            padding: constants.RSA_PKCS1_PADDING
+        }, buffer);
 
         res.status(200).json({ encrypted: encrypted.toString('base64') });
     } catch (error) {

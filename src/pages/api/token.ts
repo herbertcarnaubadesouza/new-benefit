@@ -1,6 +1,7 @@
 import axios from 'axios';
 
 export default async function handler(req: any, res: any) {
+
   const data = new URLSearchParams();
   data.append(
     "client_id",
@@ -25,7 +26,7 @@ export default async function handler(req: any, res: any) {
       }
     );
 
-    res.status(200).json({ accessToken: response.data.access_token });
+    res.status(200).json({ accessToken: response.data.dado.access_token });
   } catch (error) {
     res.status(500).json({ error: 'Error getting access token' });
   }
