@@ -10,12 +10,12 @@ function CadastroLogin() {
     event.preventDefault();
 
     try {
-      const response = await fetch("/api/login", {
+      const response = await fetch("/api/token", {
         method: "POST",
       });
 
       const data = await response.json();
-      const accessToken = data.access_token;
+      const accessToken = data.dado.access_token;
 
       console.log(response);
 
@@ -72,29 +72,31 @@ function CadastroLogin() {
     telefone: string
   ) {
     try {
-      const response = await axios.post(
-        "https://apiv4.marktclub.net.br/login/api",
-        {
-          nome: nome,
-          cpf: cpf,
-          email_pessoal: email,
-          telefone_pessoal: telefone,
+      const response = await fetch('/api/login', {
+        method: 'POST',
+        headers: {
+          "Content-Type": "application/json",
         },
-        {
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
-            Authorization: `Bearer ${accessToken}`,
-          },
+        body: JSON.stringify({
+          accessToken,
+          nome,
+          cpf,
+          email,
+          telefone,
+        }),
+      });
+
+      console.log(response)
+
+      if (response.ok) {
+        const data = await response.json();
+        if (data && data.link) {
+          window.location.replace(data.link);
+        } else {
+          console.error("A resposta não contém o link necessário");
         }
-      );
-
-      console.log(response);
-
-      if (response.status === 200 && response.data.link) {
-        const link = response.data.link;
-        window.location.replace(link);
       } else {
-        console.error("A resposta não contém o link necessário");
+        console.error("Erro ao realizar login:", response.statusText);
       }
     } catch (error) {
       console.error("Erro ao realizar login:", error);
