@@ -4,7 +4,7 @@ import Login from "../pages/Pages/Login/Login";
 export default function Index() {
   return (
     <div className="Global">
-      <Login />
+      <Home />
     </div>
   );
 }
