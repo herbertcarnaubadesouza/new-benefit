@@ -1,25 +1,17 @@
 import axios from "axios";
 import Image from "next/image";
-import NodeRSA from "node-rsa";
 import React from "react";
 import Logo from "../../../../public/logoClara.svg";
 import Password from "../../components/InputPassword/Index";
 
 function CadastroLogin() {
-  function encryptData(data: string, publicKey: string): string {
-    const key = new NodeRSA();
-    key.importKey(publicKey, "pkcs1-public-pem");
-    const encrypted = key.encrypt(data, "base64");
-    return encrypted;
-  }
-
   // REQUISIÇÃO BLOQUEADA POR ERRO DE POLÍTICA DE CORS
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
     try {
-      const response = await fetch('/api/login', {
-        method: 'POST',
+      const response = await fetch("/api/login", {
+        method: "POST",
       });
 
       const data = await response.json();
@@ -29,17 +21,6 @@ function CadastroLogin() {
 
       console.log("Access Token:", accessToken);
 
-      const publicKey = `-----BEGIN PUBLIC KEY-----
-      MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAus5uZwjciomLuvoyqQ4D
-      i07st9ZiFXkw/fO+kZbQX77ix0fa+UVpfr8hhbLreXaaCgfbHaTN+3mmXVENS6Fa
-      k6S/UI8xGqEo8iKts6DwvfnG5EL1ITdoDZSJhTLT9qTrXDYLedZ3kg1PFwjrFSCg
-      nnmbKQogyXSHjba1YjYfULHaUotRhRMRgkuQ9bnuTJecQ3+JfkyQViK6bl0iP9JJ
-      Xp2iJ9YO171EDFuGpCWDFtQObGkFdkNiAEIb5fDI0AlZw+IFTQraJKc2dLgNFXBG
-      n6zHBIzjBweWHqp0UpoexWV56FfqvW1FNoBQD2MON9KDftB2nVNFQXzaSxGQ8gJJ
-      kwIDAQAB
-      -----END PUBLIC KEY-----
-      `;
-
       const nome = (document.getElementById("name") as HTMLInputElement).value;
       const cpf = (document.getElementById("cpf") as HTMLInputElement).value;
       const email = (document.getElementById("email") as HTMLInputElement)
@@ -47,10 +28,10 @@ function CadastroLogin() {
       const telefone = (document.getElementById("telefone") as HTMLInputElement)
         .value;
 
-      const encryptedNome = encryptData(nome, publicKey);
-      const encryptedCpf = encryptData(cpf, publicKey);
-      const encryptedEmail = encryptData(email, publicKey);
-      const encryptedTelefone = encryptData(telefone, publicKey);
+      const encryptedNome = await encryptData(nome);
+      const encryptedCpf = await encryptData(cpf);
+      const encryptedEmail = await encryptData(email);
+      const encryptedTelefone = await encryptData(telefone);
 
       await loginApi(
         accessToken,
@@ -59,9 +40,27 @@ function CadastroLogin() {
         encryptedEmail,
         encryptedTelefone
       );
-
     } catch (error) {
       console.error("Erro ao obter o access token:", error);
+    }
+  }
+
+  async function encryptData(data: string) {
+    try {
+      const response = await fetch("/api/encrypt", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ data }),
+      });
+
+      console.log(response);
+
+      const { encrypted } = await response.json();
+      return encrypted;
+    } catch (error) {
+      console.error("Erro ao encriptar os dados:", error);
     }
   }
 
@@ -84,7 +83,7 @@ function CadastroLogin() {
         {
           headers: {
             "Content-Type": "application/x-www-form-urlencoded",
-            "Authorization": `Bearer ${accessToken}`,
+            Authorization: `Bearer ${accessToken}`,
           },
         }
       );
