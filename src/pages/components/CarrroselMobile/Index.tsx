@@ -1,4 +1,3 @@
-import Image from "next/image";
 
 // Criacao Slid
 
@@ -124,24 +123,24 @@ function CarrroselMobile() {
                 melhores preços e opções!
               </p>
               <div className="carrosel-icon">
-                <Image
+                <img
                   className="primeiro-logo-conforto"
                   src="./brastemp.png"
                   alt="logo-brastemp"
                 />
-                <Image
+                <img
                   className="segungo-logo-conforto"
                   src="./kitchen.png"
                   alt="logo-kitchen"
                 />
               </div>
               <div className="carrosel-icon">
-                <Image
+                <img
                   className="terceiro-logo-conforto"
                   src="./polisho.png"
                   alt="logo-polishop"
                 />
-                <Image
+                <img
                   className="quarto-logo-conforto"
                   src="./oster.png"
                   alt="logo-oster"

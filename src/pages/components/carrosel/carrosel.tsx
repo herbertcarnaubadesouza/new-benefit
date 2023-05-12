@@ -9,24 +9,10 @@ import "swiper/css/pagination";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 // Primeiro banner
-import boaCompanhia from "../../../../public/boacompanhia.png";
-import cardiogram from "../../../../public/cardiogram.png";
-import imgAbraco from "../../../../public/imgAbraço.png";
-import metrica from "../../../../public/metrica.png";
 // Segundo banner
-import UniMaisImage from "../../../../public/UniMais.png";
-import camColegioImage from "../../../../public/camColegio.png";
 
-import logoEducacao from "../../../../public/logoEducacao.png";
-import proInvesti from "../../../../public/proInvest.png";
-import terceiroAncar from "../../../../public/terceiroAncar.png";
 
 // Terceiro banner
-import brastemp from "../../../../public/brastemp.png";
-import kitchen from "../../../../public/kitchen.png";
-import logoHouse from "../../../../public/logoHouse.png";
-import oster from "../../../../public/oster.png";
-import polishop from "../../../../public/polisho.png";
 
 function Carrossel() {
   return (
@@ -136,7 +122,7 @@ function Carrossel() {
                 melhores preços e opções!
               </p>
               <div className="carrosel-icon">
-                <Image
+                <img
                   className="primeiro-logo-conforto"
                   src="./brastemp.png"
                   alt="logo-brastemp"
@@ -148,12 +134,12 @@ function Carrossel() {
                 />
               </div>
               <div className="carrosel-icon">
-                <Image
+                <img
                   className="terceiro-logo-conforto"
                   src="./polisho.png"
                   alt="logo-polishop"
                 />
-                <Image
+                <img
                   className="quarto-logo-conforto"
                   src="./oster.png"
                   alt="logo-oster"
