@@ -17,33 +17,16 @@ function CadastroLogin() {
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
-    const data = new URLSearchParams();
-    data.append(
-      "client_id",
-      "5483038437-7e5PxK3L0dYgLCuF!xfb4jp8v%Ud3g#u56ZquehsGtut$adT5HyAMdW$5VJQbXpb8S1!Y*R3E.benefit.com.br"
-    );
-    data.append(
-      "secret_id",
-      "82500-AAJaz0z04HIDT0B4bR4S1JckG9QR1J388Z6Ztb*qz6AhQ2pqeX2UO4cn$Sgcbb60ieuXVm374C"
-    );
-    data.append("audience", "web");
-    data.append("grant_type", "client_credentials");
-    data.append("scope", "login:api");
-
     try {
-      const response = await axios.post(
-        "https://apiv4.marktclub.net.br/token",
-        data,
-        {
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
-          },
-        }
-      );
+      const response = await fetch('/api/login', {
+        method: 'POST',
+      });
+
+      const data = await response.json();
+      const accessToken = data.access_token;
 
       console.log(response);
 
-      const accessToken = response.data.access_token;
       console.log("Access Token:", accessToken);
 
       const publicKey = `-----BEGIN PUBLIC KEY-----
@@ -76,7 +59,7 @@ function CadastroLogin() {
         encryptedEmail,
         encryptedTelefone
       );
-      // Aqui você pode armazenar o access_token conforme sua necessidade
+
     } catch (error) {
       console.error("Erro ao obter o access token:", error);
     }
@@ -100,7 +83,8 @@ function CadastroLogin() {
         },
         {
           headers: {
-            Authorization: `Bearer ${accessToken}`,
+            "Content-Type": "application/x-www-form-urlencoded",
+            "Authorization": `Bearer ${accessToken}`,
           },
         }
       );
@@ -139,42 +123,12 @@ function CadastroLogin() {
                     <p>CPF</p>
                     <input id="cpf" type="text" />
                   </label>
-                  <label>
-                    <p>Gênero</p>
-                    <select name="Gênero">
-                      <option value="none"></option>
-                      <option value="masculino">Masculino</option>
-                      <option value="feminino">Feminino</option>
-                    </select>
-                  </label>
-                  <label>
-                    <p>Estado Civil</p>
-                    <select name="Estado Civil">
-                      <option value="none"></option>
-                      <option value="solteiro">Solteiro</option>
-                      <option value="separado">Separado</option>
-                      <option value="divorciado ">Divorciado</option>
-                      <option value="viuvo">Viúvo</option>
-                    </select>
-                  </label>
-                  <label>
-                    <p>Data de nascimento</p>
-                    <input type="date" />
-                  </label>
+
                   <label>
                     <p>Telefone</p>
                     <input id="telefone" type="tel" name="telefone" />
                   </label>
-                  <div className="city">
-                    <label>
-                      <p>UF</p>
-                      <input type="text" name="uf" />
-                    </label>
-                    <label className="cidade">
-                      <p>Cidade</p>
-                      <input type="text" name="cidade" />
-                    </label>
-                  </div>
+
                   <label>
                     <p>Email</p>
                     <input id="email" type="email" name="email" />
