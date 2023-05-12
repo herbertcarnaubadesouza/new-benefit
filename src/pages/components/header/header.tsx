@@ -16,7 +16,7 @@ const Header = () => {
           <a id="item" href="#cliente">
             Seja Cliente
           </a>
-          <a id="item" href="#">
+          <a id="item" href="#contato">
             Contato
           </a>
           <Link href="/login">

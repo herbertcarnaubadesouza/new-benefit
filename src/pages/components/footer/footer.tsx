@@ -7,7 +7,7 @@ import LogoEscura from "../../../../public/logoEscura 2.png";
 
 function footer() {
   return (
-    <div className="container-Footer">
+    <div className="container-Footer" id="contato">
       <div className="content-footer">
         <div className="logo-footer-container">
           <div className="Logo-Footer">
