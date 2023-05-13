@@ -11,17 +11,21 @@ const HeaderMobile = () => {
         <Image className="logo-benefit-header" src={Logo} alt="Logo-BeneFit" />
       </Link>
       <div className={`nav-items ${isOpen && "open"}`}>
-        <a
-          className="nav-item"
-          href="#inicio"
-          onClick={() => setIsOpen(!isOpen)}
-        >
+        <a className="nav-item" href="#inicio" onClick={() => setIsOpen(false)}>
           Início
         </a>
-        <a className="nav-item" href="#contato">
+        <a
+          className="nav-item"
+          href="#contato"
+          onClick={() => setIsOpen(false)}
+        >
           Contato
         </a>
-        <a className="nav-item" href="#cliente">
+        <a
+          className="nav-item"
+          href="#cliente"
+          onClick={() => setIsOpen(false)}
+        >
           Seja Cliente
         </a>
         <Link href="/login">
