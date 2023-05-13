@@ -16,18 +16,18 @@
   }
 }
 
-.Navbar>img {
+.Navbar > img {
   width: 171px;
   height: 53px;
   object-fit: cover;
 }
 
-.nav-items> {
+.nav-items > {
   width: 100%;
   height: auto;
 }
 
-.Navbar>.nav-items>a {
+.Navbar > .nav-items > a {
   font-family: "Roboto";
   font-style: normal;
   font-weight: 500;
@@ -45,7 +45,7 @@
   }
 }
 
-.Navbar>.nav-items>a::before {
+.Navbar > .nav-items > a::before {
   content: "";
   position: absolute;
   left: 0;
@@ -56,22 +56,22 @@
   transition: all 0.45s;
 }
 
-.Navbar>.nav-items>a:hover::before {
+.Navbar > .nav-items > a:hover::before {
   width: 100%;
 }
 
-.Navbar>.nav-toggle {
+.Navbar > .nav-toggle {
   display: none;
 }
 
 @media (max-width: 1050px) {
-  .Navbar>.nav-items>a {
+  .Navbar > .nav-items > a {
     font-size: 20px;
     color: #939393;
     text-align: left;
   }
 
-  .Navbar>img {
+  .Navbar > img {
     width: 171px;
     height: 53px;
     margin-left: 250px;
@@ -87,21 +87,21 @@
     height: auto;
   }
 
-  .Navbar>.nav-items>a {
+  .Navbar > .nav-items > a {
     font-size: 30px;
     margin-bottom: 45px;
     text-align: center;
     width: 200px;
   }
 
-  .Navbar>img {
+  .Navbar > img {
     width: 161px;
     height: 70px;
     margin-left: 220px;
     object-fit: contain;
   }
 
-  .Navbar>.nav-items {
+  .Navbar > .nav-items {
     position: absolute;
     top: 0px;
     display: flex;
@@ -114,24 +114,19 @@
     transition: all 0.45s;
     text-align: center;
     padding-top: 150px;
-    align-items: center;
+    align-items: flex-start;
+    padding-left: 2rem;
   }
 
-  // .Login {
-  //   width: 300px;
-  //   height: 80px;
-  //   font-size: 28px;
-  // }
-
-  .Navbar>.nav-items>a::before {
+  .Navbar > .nav-items > a::before {
     background: transparent;
   }
 
-  .Navbar>.nav-items.open {
+  .Navbar > .nav-items.open {
     transform: translateX(0);
   }
 
-  .Navbar>.nav-toggle {
+  .Navbar > .nav-toggle {
     display: flex;
     width: 50px;
     height: 50px;
@@ -140,7 +135,7 @@
     cursor: pointer;
   }
 
-  .nav-toggle>.bar {
+  .nav-toggle > .bar {
     position: relative;
     width: 32px;
     height: 2px;
@@ -148,8 +143,8 @@
     transition: all 0.45s ease-in-out;
   }
 
-  .nav-toggle>.bar::before,
-  .nav-toggle>.bar::after {
+  .nav-toggle > .bar::before,
+  .nav-toggle > .bar::after {
     content: "";
     position: absolute;
     height: 2px;
@@ -158,34 +153,34 @@
     transition: all 0.45s ease-in-out;
   }
 
-  .nav-toggle>.bar::before {
+  .nav-toggle > .bar::before {
     width: 25px;
     transform: translateY(-8px);
     right: 0;
   }
 
-  .nav-toggle>.bar::after {
+  .nav-toggle > .bar::after {
     width: 32px;
     transform: translateY(8px);
   }
 
-  .nav-toggle.open>.bar {
+  .nav-toggle.open > .bar {
     transform: translateX(-40px);
     background: transparent;
   }
 
-  .nav-toggle.open>.bar::before {
+  .nav-toggle.open > .bar::before {
     width: 32px;
     transform: rotate(45deg) translate(26px, -26px);
   }
 
-  .nav-toggle.open>.bar::after {
+  .nav-toggle.open > .bar::after {
     transform: rotate(-45deg) translate(26px, 26px);
   }
 }
 
 @media (max-width: 1050px) {
-  .Navbar>img {
+  .Navbar > img {
     width: 181px;
     height: 53px;
     margin-left: 50px;
@@ -194,27 +189,37 @@
 }
 
 @media (max-width: 768px) {
-  .Navbar>img {
+  .Navbar > img {
     width: 121px;
     height: 53px;
     margin-left: 40px;
     object-fit: contain;
   }
 
+  .logo-benefit-header {
+    width: 121px;
+    height: 53px;
+    margin-left: 40px;
+    object-fit: contain;
+  }
+
+  .open .nav-item {
+    padding: 0px !important;
+    text-align: left !important;
+  }
+
   .nav-items {
     justify-content: flex-start;
     align-items: flex-start;
-    padding-left: 1.5rem;
   }
 
-
   .Login {
-    margin-left: -2.1rem;
+    margin-left: 0px !important;
   }
 }
 
 @media (max-width: 360px) {
-  .Navbar>img {
+  .Navbar > img {
     width: 100px;
     height: 50px;
     margin-left: 20px;

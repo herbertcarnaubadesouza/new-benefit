@@ -1,19 +1,32 @@
-import React, { useState } from "react";
 import Image from "next/image";
+import Link from "next/link";
+import { useState } from "react";
 import Logo from "../../../../public/logoClara.svg";
 
 const HeaderMobile = () => {
   const [isOpen, setIsOpen] = useState(false);
   return (
     <div className="Navbar">
-      <Image className="logo-benefit" src={Logo} alt="Logo-BeneFit" />
+      <Link href="/">
+        <Image className="logo-benefit-header" src={Logo} alt="Logo-BeneFit" />
+      </Link>
       <div className={`nav-items ${isOpen && "open"}`}>
-        <a className="nav-item" href="#inicio" onClick={() => setIsOpen(!isOpen)}>
+        <a
+          className="nav-item"
+          href="#inicio"
+          onClick={() => setIsOpen(!isOpen)}
+        >
           Início
         </a>
-        <a className="nav-item" href="#contato">Contato</a>
-        <a className="nav-item" href="#cliente">Seja Cliente</a>
-        <button className="Login">Fazer login</button>
+        <a className="nav-item" href="#contato">
+          Contato
+        </a>
+        <a className="nav-item" href="#cliente">
+          Seja Cliente
+        </a>
+        <Link href="/login">
+          <button className="Login">Fazer login</button>
+        </Link>
       </div>
       <div
         className={`nav-toggle ${isOpen && "open"}`}
