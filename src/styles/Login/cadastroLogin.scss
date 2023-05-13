@@ -71,10 +71,14 @@
   font-style: normal;
   font-weight: 600;
   font-size: 20px;
-  line-height: 20px;
+  line-height: 28px;
   text-align: center;
   color: #000000;
   margin-top: 20px;
+
+  @media only screen and (max-width: 768px) {
+    line-height: 20px;
+  }
 }
 
 .cadastro-input {
