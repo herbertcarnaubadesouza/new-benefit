@@ -26,8 +26,32 @@ export default async function handler(req: any, res: any) {
       }
     );
 
-    res.status(200).json({ accessToken: response.data.dado.access_token });
+    if (response.data && response.data.dado && response.data.dado.access_token) {
+      res.status(200).json({ accessToken: response.data.dado.access_token });
+    } else {
+      console.log(response.data);
+      res.status(500).json({ error: 'Unexpected response structure' });
+    }
+
   } catch (error) {
-    res.status(500).json({ error: 'Error getting access token' });
+    if (error instanceof Error) {
+      console.log(error.message);
+    } else if (
+      typeof error === 'object' &&
+      error !== null &&
+      'response' in error &&
+      error.response !== null &&
+      typeof error.response === 'object' &&
+      'data' in error.response
+    ) {
+      console.log((error.response as any).data);
+    } else {
+      console.log(error);
+    }
+    res.status(500).json({ error: 'Erro ao obter o token de acesso' });
   }
+
+
+
+
 }
