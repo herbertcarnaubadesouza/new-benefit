@@ -30,6 +30,7 @@ export default async function handler(req: any, res: any) {
       res.status(200).json({ accessToken: response.data.dado.access_token });
     } else {
       console.log(response.data);
+      console.log(response);
       res.status(500).json({ error: 'Unexpected response structure' });
     }
 
