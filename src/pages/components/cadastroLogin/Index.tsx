@@ -84,8 +84,14 @@ function CadastroLogin() {
       const data = await response.json();
 
       console.log(data);
+      console.log(data.link)
 
-      window.location.replace(data.link);
+      if (data && data.link && data.link.dado && data.link.dado.link) {
+        const url = data.link.dado.link;
+        window.location.href = url;
+      } else {
+        console.log('URL de redirecionamento não encontrada na resposta do servidor');
+      }
     } catch (error) {
       console.error("Erro ao realizar login:", error);
     }
@@ -105,28 +111,31 @@ function CadastroLogin() {
               <form onSubmit={handleSubmit}>
                 <div className="inf-input">
                   <label>
-                    <p>Nome</p>
+                    <p className="label">Nome</p>
                     <input id="name" type="text" />
                   </label>
                   <label>
-                    <p>CPF</p>
+                    <p className="label">CPF</p>
                     <input id="cpf" type="text" />
                   </label>
 
                   <label>
-                    <p>Telefone</p>
+                    <p className="label">Telefone</p>
                     <input id="telefone" type="tel" name="telefone" />
                   </label>
 
                   <label>
-                    <p>Email</p>
+                    <p className="label">Email</p>
                     <input id="email" type="email" name="email" />
                   </label>
                   <label>
-                    <p>Senha</p>
+                    <p className="label">Senha</p>
                     <Password />
                   </label>
                   <button>Cadastrar</button>
+                  <label htmlFor="">
+                    <a className="signed" href="https://login.marktclub.com.br/auth/login?client_id=a41KceqtO0QbF7iRdh8561&response_type=code&redirect_uri=https://clubebenefit.com.br/login/retorno/api&audience=browser&scope=all&state=9a178377-496f-4e43-8af4-53455976890f">Já sou cadastrado</a>
+                  </label>
                 </div>
               </form>
             </div>

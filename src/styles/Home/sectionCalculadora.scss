@@ -5,6 +5,7 @@
   background-size: cover;
   padding-block: 58px;
   width: 100%;
+
   &::before {
     content: "";
     position: absolute;
@@ -12,12 +13,10 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(
-      0,
-      128,
-      0,
-      0.5
-    ); // Adjust the last value (0.4) to control the opacity of the green overlay
+    background-color: rgba(0,
+        128,
+        0,
+        0.5); // Adjust the last value (0.4) to control the opacity of the green overlay
     z-index: 1;
   }
 }
@@ -39,6 +38,7 @@
   justify-content: center;
   align-items: center;
 }
+
 .text h2 {
   font-family: "Roboto";
   font-style: normal;
@@ -48,6 +48,7 @@
   color: #ffffff;
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
+
 .button {
   display: flex;
   justify-content: center;
@@ -79,6 +80,7 @@
     background-image: url("/back768px.png");
     height: 100%;
   }
+
   .container-calculadora {
     display: flex;
     flex-direction: column;
@@ -86,7 +88,8 @@
     justify-content: center;
     text-align: center;
   }
-  .container-calculadora .button > button {
+
+  .container-calculadora .button>button {
     width: 320px;
     height: 55px;
 
@@ -94,6 +97,7 @@
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     border-radius: 20px;
   }
+
   .container-calculadora h2 {
     width: 340px;
     height: 92px;
@@ -111,5 +115,16 @@
 
     text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
     margin-bottom: 45px;
+  }
+}
+
+@media (max-width: 430px) {
+  .container-calculadora {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 4rem;
   }
 }
