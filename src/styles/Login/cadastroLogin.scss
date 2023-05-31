@@ -13,6 +13,23 @@
   flex-direction: row;
 }
 
+.sub {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  color: #000;
+  margin-bottom: 1.5rem;
+}
+
+.label-field {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 14px;
+  color: #000;
+}
+
 .cadastro-img {
   background-image: url("/background-homemFeliz.png");
   background-repeat: no-repeat;
@@ -254,6 +271,6 @@ form button {
 
   .logo-slogan h2 {
     width: 250px;
-    font-size: 13px;
+    font-size: 16px;
   }
 }

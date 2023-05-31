@@ -29,7 +29,7 @@ const HeaderMobile = () => {
           Seja Cliente
         </a>
         <Link href="/login">
-          <button className="Login">Fazer login</button>
+          <button className="Login">Cadastrar</button>
         </Link>
       </div>
       <div
