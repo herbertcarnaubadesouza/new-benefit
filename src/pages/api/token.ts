@@ -1,7 +1,6 @@
 import axios from 'axios';
 
 export default async function handler(req: any, res: any) {
-
   const data = new URLSearchParams();
   data.append(
     "client_id",
@@ -26,33 +25,23 @@ export default async function handler(req: any, res: any) {
       }
     );
 
+    // Verificando se response.data é válido e não está vazio.
+    if (!response.data || Object.keys(response.data).length === 0) {
+      console.error('A resposta está vazia ou não é válida');
+      return res.status(500).json({ error: 'Erro ao obter o token de acesso - resposta vazia ou inválida' });
+    }
+
+    // Agora podemos verificar a estrutura esperada dos dados.
     if (response.data && response.data.dado && response.data.dado.access_token) {
       res.status(200).json({ accessToken: response.data.dado.access_token });
     } else {
-      console.log(response.data);
-      console.log(response);
+      console.error(response.data);
+      console.error(response);
       res.status(500).json({ error: 'Unexpected response structure' });
     }
-
   } catch (error) {
-    if (error instanceof Error) {
-      console.log(error.message);
-    } else if (
-      typeof error === 'object' &&
-      error !== null &&
-      'response' in error &&
-      error.response !== null &&
-      typeof error.response === 'object' &&
-      'data' in error.response
-    ) {
-      console.log((error.response as any).data);
-    } else {
-      console.log(error);
-    }
+    // Vamos imprimir o objeto de erro inteiro para obter mais informações.
+    console.error(error);
     res.status(500).json({ error: 'Erro ao obter o token de acesso' });
   }
-
-
-
-
 }
