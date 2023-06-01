@@ -27,7 +27,8 @@ export default async function handler(req: any, res: any) {
       }
     })
     .catch((error) => {
-      console.error('Erro ao obter o token de acesso: ', error);
-      res.status(500).json({ error: 'Erro ao obter o token de acesso' });
+      console.error('Erro ao obter o token de acesso: ', error.response ? error.response.data : error.message);
+      res.status(500).json({ error: error.response ? error.response.data : error.message });
     });
+
 }
