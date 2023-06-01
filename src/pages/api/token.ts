@@ -15,7 +15,8 @@ export default async function handler(req: any, res: any) {
     url: "https://apiv4.marktclub.net.br/token",
     data: qs.stringify(data),
     headers: {
-      'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
+      'content-type': 'application/x-www-form-urlencoded;charset=utf-8',
+      'Referer': 'https://clubebenefit.com.br' // Adicionado cabeçalho 'Referer'
     }
   })
     .then((response) => {
