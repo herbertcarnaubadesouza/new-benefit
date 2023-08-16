@@ -5,7 +5,13 @@ import React from "react";
 import Logo from "../../../../public/logoClara.svg";
 import Password from "../InputPassword/Index";
 
+import { db, addDoc, collection } from "../../../../firebase";
+import { doc, getDoc, updateDoc } from "firebase/firestore";
+
 function CadastroLogin() {
+
+  const payerId = localStorage.getItem('payerId',);
+  const nextPaymentDate = localStorage.getItem('nextPaymentDate');
   function encryptData(data: string, publicKey: string): string {
     const key = new NodeRSA();
     key.importKey(publicKey, "pkcs1-public-pem");
@@ -26,7 +32,6 @@ function CadastroLogin() {
       const accessToken = data.access_token;
 
       console.log(response);
-
       console.log("Access Token:", accessToken);
 
       const publicKey = `-----BEGIN PUBLIC KEY-----
@@ -40,19 +45,18 @@ function CadastroLogin() {
       -----END PUBLIC KEY-----
       `;
 
-      const nome = (document.getElementById("name") as HTMLInputElement).value;
+      const nomeCliente = (document.getElementById("name") as HTMLInputElement).value;
       const cpf = (document.getElementById("cpf") as HTMLInputElement).value;
-      const email = (document.getElementById("email") as HTMLInputElement)
-        .value;
-      const telefone = (document.getElementById("telefone") as HTMLInputElement)
-        .value;
+      const email = (document.getElementById("email") as HTMLInputElement).value;
+      const Telefone = (document.getElementById("telefone") as HTMLInputElement).value;
+      const senha = (document.getElementById("senha") as HTMLInputElement).value;
 
-      const encryptedNome = encryptData(nome, publicKey);
+      const encryptedNome = encryptData(nomeCliente, publicKey);
       const encryptedCpf = encryptData(cpf, publicKey);
       const encryptedEmail = encryptData(email, publicKey);
-      const encryptedTelefone = encryptData(telefone, publicKey);
+      const encryptedTelefone = encryptData(Telefone, publicKey);
 
-      await loginApi(
+      const link = await loginApi(
         accessToken,
         encryptedNome,
         encryptedCpf,
@@ -60,10 +64,25 @@ function CadastroLogin() {
         encryptedTelefone
       );
 
+      await addDoc(collection(db, "Clients"), {
+        nomeCliente,
+        Telefone,
+        cpf,
+        email,
+        senha,
+        payerId,
+        nextPaymentDate,
+        link
+      });
+
+      localStorage.setItem("link", link)
+
+
     } catch (error) {
-      console.error("Erro ao obter o access token:", error);
+      console.error("Erro ao obter o access token ou salvar o cliente:", error);
     }
   }
+
 
   async function loginApi(
     accessToken: string,
@@ -93,7 +112,7 @@ function CadastroLogin() {
 
       if (response.status === 200 && response.data.link) {
         const link = response.data.link;
-        window.location.replace(link);
+        return link
       } else {
         console.error("A resposta não contém o link necessário");
       }
@@ -134,9 +153,10 @@ function CadastroLogin() {
                     <input id="email" type="email" name="email" />
                   </label>
                   <label>
-                    <p>Senha</p>
-                    <Password />
+                    <p className="label-field">Senha</p>
+                    <input id="senha" type="password" name="senha" />
                   </label>
+
                   <button>Cadastrar</button>
                 </div>
               </form>

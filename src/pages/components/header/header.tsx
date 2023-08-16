@@ -2,7 +2,20 @@ import Image from "next/image";
 import Logo from "../../../../public/logoClara.svg";
 import Link from "next/link";
 
+import { useState, useEffect } from 'react';
+
+
 const Header = () => {
+  const [link, setLink] = useState<string | null>(null);
+
+  // Monitorar mudanças no localStorage
+  useEffect(() => {
+    const currentLink = localStorage.getItem('link');
+    if (currentLink) {
+      setLink(currentLink);
+    }
+  }, []);
+
   return (
     <section className="container-header">
       <div className="content-header-desktop">
@@ -19,9 +32,23 @@ const Header = () => {
           <a id="item" href="#contato">
             Contato
           </a>
-          <Link href="/login">
-            <button className="Login">Cadastrar</button>
+          <Link href="/loginTrue">
+
+            <p
+              id="item"
+            >
+              Fazer login
+            </p>
           </Link>
+          {link ? (
+            <Link href={link}>
+              <button className="Login">Acessar clube</button>
+            </Link>
+          ) : (
+            <Link href="/Checkout">
+              <button className="Login">Obter acesso</button>
+            </Link>
+          )}
         </div>
       </div>
     </section>
