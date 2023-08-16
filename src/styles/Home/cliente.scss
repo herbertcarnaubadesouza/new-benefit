@@ -179,13 +179,9 @@
     width: 100%;
   }
 
-  #number-clientes {
-    padding-top: 0.5rem;
-  }
-
   .caixa__branca {
     width: 280px;
-    height: 84px;
+    height: 85px;
   }
 
   .container__cliente h1 {
@@ -207,5 +203,13 @@
 
   .botao__cliente {
     width: 240px;
+  }
+
+  .content-block-caixa h1 {
+    padding-top: 0.5rem;
+  }
+
+  .content-block-caixa p {
+    padding-bottom: 0.5rem;
   }
 }

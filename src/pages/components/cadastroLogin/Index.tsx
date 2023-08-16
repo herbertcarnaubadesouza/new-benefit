@@ -1,88 +1,89 @@
-import axios from "axios";
 import Image from "next/image";
-import NodeRSA from "node-rsa";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Logo from "../../../../public/logoClara.svg";
-import Password from "../InputPassword/Index";
+import Password from "../../components/InputPassword/Index";
+
 
 import { db, addDoc, collection } from "../../../../firebase";
 import { doc, getDoc, updateDoc } from "firebase/firestore";
 
 function CadastroLogin() {
-
-  const payerId = localStorage.getItem('payerId',);
-  const nextPaymentDate = localStorage.getItem('nextPaymentDate');
-  function encryptData(data: string, publicKey: string): string {
-    const key = new NodeRSA();
-    key.importKey(publicKey, "pkcs1-public-pem");
-    const encrypted = key.encrypt(data, "base64");
-    return encrypted;
-  }
-
   // REQUISIÇÃO BLOQUEADA POR ERRO DE POLÍTICA DE CORS
+  const senha = (document.getElementById("senha") as HTMLInputElement).value;
+
+  const [payerId, setPayerId] = useState<string | null>(null);
+  const [nextPaymentDate, setNextPaymentDate] = useState<string | null>(null);
+
+  useEffect(() => {
+    const payerIdFromLocalStorage = localStorage.getItem('payerId');
+    const nextPaymentDateFromLocalStorage = localStorage.getItem('nextPaymentDate');
+
+    if (payerIdFromLocalStorage) {
+      setPayerId(payerIdFromLocalStorage);
+    }
+
+    if (nextPaymentDateFromLocalStorage) {
+      setNextPaymentDate(nextPaymentDateFromLocalStorage);
+    }
+  }, []);
+
+
+
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
     try {
-      const response = await fetch('/api/login', {
-        method: 'POST',
+      const response = await fetch("/api/token", {
+        method: "POST",
       });
 
       const data = await response.json();
-      const accessToken = data.access_token;
 
-      console.log(response);
-      console.log("Access Token:", accessToken);
+      const accessToken = data.accessToken;
 
-      const publicKey = `-----BEGIN PUBLIC KEY-----
-      MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAus5uZwjciomLuvoyqQ4D
-      i07st9ZiFXkw/fO+kZbQX77ix0fa+UVpfr8hhbLreXaaCgfbHaTN+3mmXVENS6Fa
-      k6S/UI8xGqEo8iKts6DwvfnG5EL1ITdoDZSJhTLT9qTrXDYLedZ3kg1PFwjrFSCg
-      nnmbKQogyXSHjba1YjYfULHaUotRhRMRgkuQ9bnuTJecQ3+JfkyQViK6bl0iP9JJ
-      Xp2iJ9YO171EDFuGpCWDFtQObGkFdkNiAEIb5fDI0AlZw+IFTQraJKc2dLgNFXBG
-      n6zHBIzjBweWHqp0UpoexWV56FfqvW1FNoBQD2MON9KDftB2nVNFQXzaSxGQ8gJJ
-      kwIDAQAB
-      -----END PUBLIC KEY-----
-      `;
-
-      const nomeCliente = (document.getElementById("name") as HTMLInputElement).value;
+      const nome = (document.getElementById("name") as HTMLInputElement).value;
       const cpf = (document.getElementById("cpf") as HTMLInputElement).value;
-      const email = (document.getElementById("email") as HTMLInputElement).value;
-      const Telefone = (document.getElementById("telefone") as HTMLInputElement).value;
-      const senha = (document.getElementById("senha") as HTMLInputElement).value;
+      const email = (document.getElementById("email") as HTMLInputElement)
+        .value;
+      const telefone = (document.getElementById("telefone") as HTMLInputElement)
+        .value;
 
-      const encryptedNome = encryptData(nomeCliente, publicKey);
-      const encryptedCpf = encryptData(cpf, publicKey);
-      const encryptedEmail = encryptData(email, publicKey);
-      const encryptedTelefone = encryptData(Telefone, publicKey);
+      const encryptedNome = await encryptData(nome);
+      const encryptedCpf = await encryptData(cpf);
+      const encryptedEmail = await encryptData(email);
+      const encryptedTelefone = await encryptData(telefone);
 
-      const link = await loginApi(
+
+
+      await loginApi(
         accessToken,
         encryptedNome,
         encryptedCpf,
         encryptedEmail,
         encryptedTelefone
       );
-
-      await addDoc(collection(db, "Clients"), {
-        nomeCliente,
-        Telefone,
-        cpf,
-        email,
-        senha,
-        payerId,
-        nextPaymentDate,
-        link
-      });
-
-      localStorage.setItem("link", link)
-
-
     } catch (error) {
-      console.error("Erro ao obter o access token ou salvar o cliente:", error);
+      console.error("Erro ao obter o access token:", error);
     }
   }
 
+  async function encryptData(data: string) {
+    try {
+      const response = await fetch("/api/encrypt", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ data }),
+      });
+
+      const { encrypted } = await response.json();
+
+      return encrypted;
+    } catch (error) {
+      console.error("Erro ao encriptar os dados:", error);
+    }
+  }
 
   async function loginApi(
     accessToken: string,
@@ -92,29 +93,43 @@ function CadastroLogin() {
     telefone: string
   ) {
     try {
-      const response = await axios.post(
-        "https://apiv4.marktclub.net.br/login/api",
-        {
-          nome: nome,
-          cpf: cpf,
-          email_pessoal: email,
-          telefone_pessoal: telefone,
+      const response = await fetch("/api/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
         },
-        {
-          headers: {
-            "Content-Type": "application/x-www-form-urlencoded",
-            "Authorization": `Bearer ${accessToken}`,
-          },
-        }
-      );
+        body: JSON.stringify({
+          accessToken,
+          nome,
+          cpf,
+          email,
+          telefone,
+        }),
+      });
 
-      console.log(response);
+      const data = await response.json();
 
-      if (response.status === 200 && response.data.link) {
-        const link = response.data.link;
-        return link
+      console.log(data);
+      console.log(data.link)
+
+      if (data && data.link && data.link.dado && data.link.dado.link) {
+        const url = data.link.dado.link;
+
+        await addDoc(collection(db, "Clients"), {
+          nomeCliente: nome,
+          Telefone: telefone,
+          cpf: cpf,
+          email: email,
+          senha: senha,
+          payerId: payerId,
+          nextPaymentDate: nextPaymentDate,
+          link: url
+        });
+
+        localStorage.setItem("link", url)
+        window.location.href = url;
       } else {
-        console.error("A resposta não contém o link necessário");
+        console.log('URL de redirecionamento não encontrada na resposta do servidor');
       }
     } catch (error) {
       console.error("Erro ao realizar login:", error);
@@ -129,35 +144,37 @@ function CadastroLogin() {
           <div className="cadastro-form">
             <div className="logo-slogan">
               <Image className="logo-benefit" src={Logo} alt="Logo-BeneFit" />
-              <h2 className="sub">Cadastre-se para acessar o clube de benefícios</h2>
+              <h2>Cadastre-se para acessar o clube de benefícios</h2>
             </div>
             <div className="cadastro-input">
               <form onSubmit={handleSubmit}>
                 <div className="inf-input">
                   <label>
-                    <p className="label-field">Nome</p>
+                    <p className="label">Nome</p>
                     <input id="name" type="text" />
                   </label>
                   <label>
-                    <p className="label-field">CPF</p>
+                    <p className="label">CPF</p>
                     <input id="cpf" type="text" />
                   </label>
 
                   <label>
-                    <p className="label-field">Telefone</p>
+                    <p className="label">Telefone</p>
                     <input id="telefone" type="tel" name="telefone" />
                   </label>
 
                   <label>
-                    <p className="label-field">Email</p>
+                    <p className="label">Email</p>
                     <input id="email" type="email" name="email" />
                   </label>
                   <label>
                     <p className="label-field">Senha</p>
                     <input id="senha" type="password" name="senha" />
                   </label>
-
                   <button>Cadastrar</button>
+                  <label htmlFor="">
+                    <a className="signed" href="https://login.marktclub.com.br/auth/login?client_id=a41KceqtO0QbF7iRdh8561&response_type=code&redirect_uri=https://clubebenefit.com.br/login/retorno/api&audience=browser&scope=all&state=9a178377-496f-4e43-8af4-53455976890f">Já sou cadastrado</a>
+                  </label>
                 </div>
               </form>
             </div>

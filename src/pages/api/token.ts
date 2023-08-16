@@ -15,7 +15,8 @@ export default async function handler(req: any, res: any) {
     url: "https://apiv4.marktclub.net.br/token",
     data: qs.stringify(data),
     headers: {
-      'content-type': 'application/x-www-form-urlencoded;charset=utf-8'
+      'content-type': 'application/x-www-form-urlencoded;charset=utf-8',
+      'Referer': 'https://clubebenefit.com.br' // Adicionado cabeçalho 'Referer'
     }
   })
     .then((response) => {
@@ -27,7 +28,8 @@ export default async function handler(req: any, res: any) {
       }
     })
     .catch((error) => {
-      console.error('Erro ao obter o token de acesso: ', error);
-      res.status(500).json({ error: 'Erro ao obter o token de acesso' });
+      console.error('Erro ao obter o token de acesso: ', error.response ? error.response.data : error.message);
+      res.status(500).json({ error: error.response ? error.response.data : error.message });
     });
+
 }
