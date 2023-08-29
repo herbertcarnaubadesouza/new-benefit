@@ -1,22 +1,24 @@
 import Image from "next/image";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Logo from "../../../../public/logoClara.svg";
-import Password from "../../components/InputPassword/Index";
 
-
-import { db, addDoc, collection } from "../../../../firebase";
-import { doc, getDoc, updateDoc } from "firebase/firestore";
+import { addDoc, collection, db } from "../../../../firebase";
 
 function CadastroLogin() {
   // REQUISIÇÃO BLOQUEADA POR ERRO DE POLÍTICA DE CORS
-  const senha = (document.getElementById("senha") as HTMLInputElement).value;
+  const senhaRef = useRef<HTMLInputElement>(null);
+  const nomeRef = useRef<HTMLInputElement>(null);
+  const cpfRef = useRef<HTMLInputElement>(null);
+  const emailRef = useRef<HTMLInputElement>(null);
+  const telefoneRef = useRef<HTMLInputElement>(null);
 
   const [payerId, setPayerId] = useState<string | null>(null);
   const [nextPaymentDate, setNextPaymentDate] = useState<string | null>(null);
 
   useEffect(() => {
-    const payerIdFromLocalStorage = localStorage.getItem('payerId');
-    const nextPaymentDateFromLocalStorage = localStorage.getItem('nextPaymentDate');
+    const payerIdFromLocalStorage = localStorage.getItem("payerId");
+    const nextPaymentDateFromLocalStorage =
+      localStorage.getItem("nextPaymentDate");
 
     if (payerIdFromLocalStorage) {
       setPayerId(payerIdFromLocalStorage);
@@ -26,8 +28,6 @@ function CadastroLogin() {
       setNextPaymentDate(nextPaymentDateFromLocalStorage);
     }
   }, []);
-
-
 
   async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -41,19 +41,16 @@ function CadastroLogin() {
 
       const accessToken = data.accessToken;
 
-      const nome = (document.getElementById("name") as HTMLInputElement).value;
-      const cpf = (document.getElementById("cpf") as HTMLInputElement).value;
-      const email = (document.getElementById("email") as HTMLInputElement)
-        .value;
-      const telefone = (document.getElementById("telefone") as HTMLInputElement)
-        .value;
+      const nome = nomeRef.current?.value || "";
+      const cpf = cpfRef.current?.value || "";
+      const email = emailRef.current?.value || "";
+      const telefone = telefoneRef.current?.value || "";
+      const senha = senhaRef.current?.value || "";
 
       const encryptedNome = await encryptData(nome);
       const encryptedCpf = await encryptData(cpf);
       const encryptedEmail = await encryptData(email);
       const encryptedTelefone = await encryptData(telefone);
-
-
 
       await loginApi(
         accessToken,
@@ -110,7 +107,7 @@ function CadastroLogin() {
       const data = await response.json();
 
       console.log(data);
-      console.log(data.link)
+      console.log(data.link);
 
       if (data && data.link && data.link.dado && data.link.dado.link) {
         const url = data.link.dado.link;
@@ -120,16 +117,18 @@ function CadastroLogin() {
           Telefone: telefone,
           cpf: cpf,
           email: email,
-          senha: senha,
+          senha: senhaRef,
           payerId: payerId,
           nextPaymentDate: nextPaymentDate,
-          link: url
+          link: url,
         });
 
-        localStorage.setItem("link", url)
+        localStorage.setItem("link", url);
         window.location.href = url;
       } else {
-        console.log('URL de redirecionamento não encontrada na resposta do servidor');
+        console.log(
+          "URL de redirecionamento não encontrada na resposta do servidor"
+        );
       }
     } catch (error) {
       console.error("Erro ao realizar login:", error);
@@ -151,29 +150,49 @@ function CadastroLogin() {
                 <div className="inf-input">
                   <label>
                     <p className="label">Nome</p>
-                    <input id="name" type="text" />
+                    <input ref={nomeRef} id="name" type="text" />
                   </label>
                   <label>
                     <p className="label">CPF</p>
-                    <input id="cpf" type="text" />
+                    <input ref={cpfRef} id="cpf" type="text" />
                   </label>
 
                   <label>
                     <p className="label">Telefone</p>
-                    <input id="telefone" type="tel" name="telefone" />
+                    <input
+                      ref={telefoneRef}
+                      id="telefone"
+                      type="tel"
+                      name="telefone"
+                    />
                   </label>
 
                   <label>
                     <p className="label">Email</p>
-                    <input id="email" type="email" name="email" />
+                    <input
+                      ref={emailRef}
+                      id="email"
+                      type="email"
+                      name="email"
+                    />
                   </label>
                   <label>
                     <p className="label-field">Senha</p>
-                    <input id="senha" type="password" name="senha" />
+                    <input
+                      ref={senhaRef}
+                      id="senha"
+                      type="password"
+                      name="senha"
+                    />
                   </label>
                   <button>Cadastrar</button>
                   <label htmlFor="">
-                    <a className="signed" href="https://login.marktclub.com.br/auth/login?client_id=a41KceqtO0QbF7iRdh8561&response_type=code&redirect_uri=https://clubebenefit.com.br/login/retorno/api&audience=browser&scope=all&state=9a178377-496f-4e43-8af4-53455976890f">Já sou cadastrado</a>
+                    <a
+                      className="signed"
+                      href="https://login.marktclub.com.br/auth/login?client_id=a41KceqtO0QbF7iRdh8561&response_type=code&redirect_uri=https://clubebenefit.com.br/login/retorno/api&audience=browser&scope=all&state=9a178377-496f-4e43-8af4-53455976890f"
+                    >
+                      Já sou cadastrado
+                    </a>
                   </label>
                 </div>
               </form>
