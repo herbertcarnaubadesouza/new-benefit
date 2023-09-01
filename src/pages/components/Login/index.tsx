@@ -1,13 +1,12 @@
 import Image from "next/image";
-import React, { FormEvent, useEffect } from "react";
+import { FormEvent, useEffect } from "react";
 import Logo from "../../../../public/logoClara.svg";
-import Password from "../InputPassword/Index";
 
-import { useState } from "react";
 import { useRouter } from "next/router";
+import { useState } from "react";
 
-import { db, addDoc, collection } from "../../../../firebase";
-import { doc, getDoc, getDocs, updateDoc } from "firebase/firestore";
+import { getDocs } from "firebase/firestore";
+import { collection, db } from "../../../../firebase";
 
 interface Login {
   id: string;
@@ -18,15 +17,12 @@ interface Login {
   link: string;
 }
 
-
 function Login() {
   const [email, setEmail] = useState("");
   const [senha, setSenha] = useState("");
   const router = useRouter(); // Instância do roteador
   const [teste, setTeste] = useState<Login[]>([]);
   const [error, setError] = useState("");
-
-
 
   useEffect(() => {
     const fetchData = async () => {
@@ -38,7 +34,7 @@ function Login() {
           id: doc.id,
           email: data.email,
           senha: data.senha,
-          link: data.link
+          link: data.link,
         };
         return login;
       });
@@ -61,17 +57,16 @@ function Login() {
 
     if (user) {
       setUserId(user.id);
-      localStorage.setItem('userId', user.id);
-      localStorage.setItem('link', user.link);
+      localStorage.setItem("userId", user.id);
+      localStorage.setItem("link", user.link);
       console.log(user.link);
       console.log("foi");
-      // router.push("/");
+      router.push("/");
     } else {
       setError("Email ou senha incorretos");
-      console.log("nao tem senha")
+      console.log("nao tem senha");
     }
   };
-
 
   return (
     <div className="container-cadastroLogin">
@@ -81,13 +76,13 @@ function Login() {
           <div className="cadastro-form">
             <div className="logo-slogan">
               <Image className="logo-benefit" src={Logo} alt="Logo-BeneFit" />
-              <h2 className="sub">Cadastre-se para acessar o clube de benefícios</h2>
+              <h2 className="sub">
+                Cadastre-se para acessar o clube de benefícios
+              </h2>
             </div>
             <div className="cadastro-input">
               <form onSubmit={handleLogin}>
                 <div className="inf-input">
-
-
                   <label>
                     <p className="label-field">Email</p>
                     <input
@@ -111,7 +106,6 @@ function Login() {
 
                   <button>Cadastrar</button>
                   {error && <div className="error-message">{error}</div>}
-
                 </div>
               </form>
             </div>

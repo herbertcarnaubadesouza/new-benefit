@@ -113,13 +113,13 @@ function CadastroLogin() {
         const url = data.link.dado.link;
 
         await addDoc(collection(db, "Clients"), {
-          nomeCliente: nome,
-          Telefone: telefone,
-          cpf: cpf,
-          email: email,
-          senha: senhaRef,
-          payerId: payerId,
-          nextPaymentDate: nextPaymentDate,
+          nomeCliente: nomeRef.current?.toString(),
+          Telefone: telefoneRef.current?.value.toString(),
+          cpf: cpfRef.current?.value.toString(),
+          email: emailRef.current?.value.toString(),
+          senha: senhaRef.current?.value.toString(),
+          payerId: payerId ? payerId.toString() : "",
+          nextPaymentDate: nextPaymentDate ? nextPaymentDate.toString() : "",
           link: url,
         });
 
