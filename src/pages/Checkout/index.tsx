@@ -151,7 +151,7 @@ export default function Checkout() {
       <div className={styles.container}>
         <div className={styles.bg}>
           <div className={styles.ImageContainer}>
-            <img className={styles.logo} src="/logoClara.jpg" alt="logo" />
+            <img className={styles.logo} src="/logoClara.png" alt="logo" />
           </div>
         </div>
 

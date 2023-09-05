@@ -145,7 +145,28 @@ export default function MercadoPago() {
             display: flex;
             flex-direction: column;
             gap: 2rem;
-            max-width: 600px;
+            max-width: 80%;
+          }
+
+          #form-checkout__submit {
+            max-width: 94%;
+          }
+
+          @media only screen and (max-width: 768px) {
+            #form-checkout {
+              display: flex;
+              flex-direction: column;
+              gap: 2rem;
+              max-width: 100%;
+
+              width: 100vw;
+
+              padding-left: 15rem;
+            }
+
+            #form-checkout__submit {
+              max-width: 100%;
+            }
           }
 
           .container {
