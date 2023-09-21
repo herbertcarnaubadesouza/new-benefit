@@ -1,20 +1,36 @@
 import Image from "next/image";
-import Logo from "../../../../public/logoClara.svg";
 import Link from "next/link";
+import Logo from "../../../../public/logoClara.svg";
 
-import { useState, useEffect } from 'react';
-
+import { useEffect, useState } from "react";
 
 const Header = () => {
   const [link, setLink] = useState<string | null>(null);
 
   // Monitorar mudanças no localStorage
   useEffect(() => {
-    const currentLink = localStorage.getItem('link');
+    const currentLink = localStorage.getItem("link");
     if (currentLink) {
       setLink(currentLink);
     }
   }, []);
+
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const linkValue = localStorage.getItem("link");
+    if (linkValue) {
+      setIsLoggedIn(true);
+    }
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.clear();
+    setIsLoggedIn(false);
+  };
+
+  const linkValue = localStorage.getItem("link");
+  const validLink = linkValue ? linkValue : "/";
 
   return (
     <section className="container-header">
@@ -27,21 +43,22 @@ const Header = () => {
             Início
           </a>
           <a id="item" href="#cliente">
-            Seja Cliente
+            Faça parte
           </a>
           <a id="item" href="#contato">
             Contato
           </a>
-          <Link href="/loginTrue">
-
-            <p
-              id="item"
-            >
-              Fazer login
+          {isLoggedIn ? (
+            <p id="item" onClick={handleLogout}>
+              Fazer logout
             </p>
-          </Link>
-          {link ? (
-            <Link href={link}>
+          ) : (
+            <Link href="/loginTrue">
+              <p id="item">Fazer login</p>
+            </Link>
+          )}
+          {isLoggedIn ? (
+            <Link href={validLink}>
               <button className="Login">Acessar clube</button>
             </Link>
           ) : (

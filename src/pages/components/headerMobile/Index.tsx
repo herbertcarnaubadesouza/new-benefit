@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useEffect } from 'react';
+import { useEffect, useState } from "react";
 import Logo from "../../../../public/logoClara.svg";
 
 const HeaderMobile = () => {
@@ -10,11 +10,29 @@ const HeaderMobile = () => {
 
   // Monitorar mudanças no localStorage
   useEffect(() => {
-    const currentLink = localStorage.getItem('link');
+    const currentLink = localStorage.getItem("link");
     if (currentLink) {
       setLink(currentLink);
     }
   }, []);
+
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const linkValue = localStorage.getItem("link");
+    if (linkValue) {
+      setIsLoggedIn(true);
+    }
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.clear();
+    setIsLoggedIn(false);
+  };
+
+  const linkValue = localStorage.getItem("link");
+  const validLink = linkValue ? linkValue : "/";
+
   return (
     <div className="Navbar">
       <Link href="/">
@@ -36,19 +54,19 @@ const HeaderMobile = () => {
           href="#cliente"
           onClick={() => setIsOpen(false)}
         >
-          Seja Cliente
+          Faça parte
         </a>
-        <Link href="/loginTrue">
-
-          <p
-            className="nav-item"
-            onClick={() => setIsOpen(false)}
-          >
-            Fazer login
+        {isLoggedIn ? (
+          <p id="item" onClick={handleLogout}>
+            Fazer logout
           </p>
-        </Link>
-        {link ? (
-          <Link href={link}>
+        ) : (
+          <Link href="/loginTrue">
+            <p id="item">Fazer login</p>
+          </Link>
+        )}
+        {isLoggedIn ? (
+          <Link href={validLink}>
             <button className="Login">Acessar clube</button>
           </Link>
         ) : (

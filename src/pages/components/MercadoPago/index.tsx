@@ -229,7 +229,7 @@ export default function MercadoPago() {
 
         <div className="valueContainer">
           <p>Valor total</p>
-          <p>R$ 9,99</p>
+          <p>R$ 9,90</p>
         </div>
 
         <button type="submit" id="form-checkout__submit">
