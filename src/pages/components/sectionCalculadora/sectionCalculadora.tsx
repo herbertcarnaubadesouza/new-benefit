@@ -1,5 +1,3 @@
-import React from "react";
-
 function sectionCalculadora() {
   return (
     <section>
@@ -13,9 +11,11 @@ function sectionCalculadora() {
               <br /> disponível aqui no Clube Benefit!
             </h2>
           </div>
-          <div className="button">
-            <button>Adicionar extensão</button>
-          </div>
+          <a href="https://chrome.google.com/webstore/detail/tem-mais-vantagens/ghhhocjedgofpmjjgkkkibcmjlldolpc">
+            <div className="button">
+              <button>Adicionar extensão</button>
+            </div>
+          </a>
         </div>
       </div>
     </section>

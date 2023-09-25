@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 const Cliente = () => {
   return (
     <section>
@@ -15,8 +17,13 @@ const Cliente = () => {
               <p>Parceiras</p>
             </div>
           </div>
-          <h3>Nenhum outro oferece tantas opcões</h3>
-          <button className="botao__cliente">Seja cliente</button>
+          <h3>
+            Inscreva-se agora por apenas R$9,90 e comece a economizar hoje
+            mesmo!
+          </h3>
+          <Link href="/Checkout">
+            <button className="botao__cliente">Faça parte</button>
+          </Link>
         </div>
       </div>
     </section>

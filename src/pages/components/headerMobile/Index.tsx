@@ -30,8 +30,15 @@ const HeaderMobile = () => {
     setIsLoggedIn(false);
   };
 
-  const linkValue = localStorage.getItem("link");
-  const validLink = linkValue ? linkValue : "/";
+  let linkValue = "/";
+  if (typeof window !== "undefined" && window.localStorage) {
+    try {
+      linkValue = localStorage.getItem("link") || "/";
+    } catch (error) {
+      console.error("Error accessing localStorage:", error);
+    }
+  }
+  const validLink = linkValue;
 
   return (
     <div className="Navbar">
@@ -39,9 +46,11 @@ const HeaderMobile = () => {
         <Image className="logo-benefit-header" src={Logo} alt="Logo-BeneFit" />
       </Link>
       <div className={`nav-items ${isOpen && "open"}`}>
-        <a className="nav-item" href="#inicio" onClick={() => setIsOpen(false)}>
-          Início
-        </a>
+        <Link href="/">
+          <p className="nav-item" onClick={() => setIsOpen(false)}>
+            Início
+          </p>
+        </Link>
         <a
           className="nav-item"
           href="#contato"

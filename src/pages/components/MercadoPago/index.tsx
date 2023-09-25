@@ -144,8 +144,8 @@ export default function MercadoPago() {
           #form-checkout {
             display: flex;
             flex-direction: column;
-            gap: 2rem;
-            max-width: 80%;
+            gap: 1.5rem;
+            max-width: 70%;
           }
 
           #form-checkout__submit {
@@ -156,7 +156,7 @@ export default function MercadoPago() {
             #form-checkout {
               display: flex;
               flex-direction: column;
-              gap: 2rem;
+              gap: 1.5rem;
               max-width: 100%;
 
               width: 100vw;
@@ -199,13 +199,13 @@ export default function MercadoPago() {
       </style>
 
       <form id="form-checkout">
-        <div id="form-checkout__cardNumber" className={styles.field}></div>
-        <div id="form-checkout__expirationDate" className={styles.field}></div>
-        <div id="form-checkout__securityCode" className={styles.field}></div>
+        <div id="form-checkout__cardNumber" className={styles.fieldC}></div>
+        <div id="form-checkout__expirationDate" className={styles.fieldC}></div>
+        <div id="form-checkout__securityCode" className={styles.fieldC}></div>
         <input
           type="text"
           id="form-checkout__cardholderName"
-          className={styles.field}
+          className={styles.fieldC}
         />
         <select id="form-checkout__issuer" className="selectForm"></select>
         <select
@@ -219,12 +219,12 @@ export default function MercadoPago() {
         <input
           type="text"
           id="form-checkout__identificationNumber"
-          className={styles.field}
+          className={styles.fieldC}
         />
         <input
           type="email"
           id="form-checkout__cardholderEmail"
-          className={styles.field}
+          className={styles.fieldC}
         />
 
         <div className="valueContainer">

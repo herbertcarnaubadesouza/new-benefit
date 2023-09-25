@@ -29,8 +29,15 @@ const Header = () => {
     setIsLoggedIn(false);
   };
 
-  const linkValue = localStorage.getItem("link");
-  const validLink = linkValue ? linkValue : "/";
+  let linkValue = "/";
+  if (typeof window !== "undefined" && window.localStorage) {
+    try {
+      linkValue = localStorage.getItem("link") || "/";
+    } catch (error) {
+      console.error("Error accessing localStorage:", error);
+    }
+  }
+  const validLink = linkValue;
 
   return (
     <section className="container-header">

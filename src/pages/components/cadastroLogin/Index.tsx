@@ -2,6 +2,8 @@ import Image from "next/image";
 import React, { useEffect, useRef, useState } from "react";
 import Logo from "../../../../public/logoClara.svg";
 
+import styles from "../../../styles/Login.module.scss";
+
 import { addDoc, collection, db } from "../../../../firebase";
 
 function CadastroLogin() {
@@ -140,7 +142,15 @@ function CadastroLogin() {
       <div className="cadastro-login-img">
         <div className="cadastro-img"></div>
         <div className="cadastro-clube">
-          <div className="cadastro-form">
+          <div className={styles.stepsC}>
+            <div className={styles.stepName}>
+              <p className={styles.next}>Checkout</p>
+              <p className={styles.this}>Cadastro</p>
+            </div>
+            <div className={styles.barC}></div>
+          </div>
+
+          <div className="cadastro-formC">
             <div className="logo-slogan">
               <Image className="logo-benefit" src={Logo} alt="Logo-BeneFit" />
               <h2>Cadastre-se para acessar o clube de benefícios</h2>

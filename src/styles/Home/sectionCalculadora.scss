@@ -13,10 +13,12 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0,
-        128,
-        0,
-        0.5); // Adjust the last value (0.4) to control the opacity of the green overlay
+    background-color: rgba(
+      0,
+      128,
+      0,
+      0.5
+    ); // Adjust the last value (0.4) to control the opacity of the green overlay
     z-index: 1;
   }
 }
@@ -89,7 +91,7 @@
     text-align: center;
   }
 
-  .container-calculadora .button>button {
+  .container-calculadora .button > button {
     width: 320px;
     height: 55px;
 
@@ -126,5 +128,9 @@
     justify-content: center;
     text-align: center;
     gap: 4rem;
+  }
+
+  .container-section-calculadora {
+    display: none;
   }
 }
