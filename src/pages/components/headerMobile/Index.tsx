@@ -147,6 +147,60 @@ const HeaderMobile = () => {
     }
   }
 
+  // CANCELAR PAGAMENTO
+
+  // Obter o paymentId do localStorage ou de onde você armazenou
+  const paymentId =
+    typeof window !== "undefined"
+      ? localStorage.getItem("paymentId") || ""
+      : "";
+
+  // if (!paymentId) {
+  //   console.log("Payment ID não encontrado.");
+  //   return;
+  // }
+
+  const cancelSubscription = () => {
+    const userConfirmed = window.confirm(
+      "Tem certeza que deseja cancelar o plano?"
+    );
+
+    if (userConfirmed) {
+      // O código de cancelamento do plano que você já tem vai aqui
+      const paymentId =
+        typeof window !== "undefined"
+          ? localStorage.getItem("paymentId") || ""
+          : "";
+
+      if (!paymentId) {
+        console.error("Payment ID não encontrado.");
+        return;
+      }
+
+      fetch("/api/cancel_payment", {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          paymentId,
+        }),
+      })
+        .then((res) => {
+          if (!res.ok) {
+            throw new Error("Erro ao cancelar o pagamento.");
+          }
+          return res.json();
+        })
+        .then((data) => {
+          alert(`Assinatura cancelada com sucesso: ${data.message}`);
+        })
+        .catch((error) => {
+          alert(`Erro ao cancelar a assinatura: ${error}`);
+        });
+    }
+  };
+
   return (
     <div className="Navbar">
       <Link href="/">
@@ -158,20 +212,24 @@ const HeaderMobile = () => {
             Início
           </p>
         </Link>
-        <a
-          className="nav-item"
-          href="#contato"
-          onClick={() => setIsOpen(false)}
-        >
-          Contato
-        </a>
-        <a
-          className="nav-item"
-          href="#cliente"
-          onClick={() => setIsOpen(false)}
-        >
-          Faça parte
-        </a>
+        {isLoggedIn ? (
+          <a id="item" href="#contato">
+            Contato
+          </a>
+        ) : (
+          <a id="item" href="#cliente">
+            Faça parte
+          </a>
+        )}
+        {isLoggedIn ? (
+          <p id="item" onClick={cancelSubscription}>
+            Cancelar plano
+          </p>
+        ) : (
+          <a id="item" href="#contato">
+            Contato
+          </a>
+        )}
         {isLoggedIn ? (
           <p id="item" onClick={handleLogout}>
             Fazer logout
