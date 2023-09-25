@@ -15,15 +15,21 @@ function CadastroLogin() {
   const telefoneRef = useRef<HTMLInputElement>(null);
 
   const [payerId, setPayerId] = useState<string | null>(null);
+  const [paymentId, setPaymentId] = useState<string | null>(null);
   const [nextPaymentDate, setNextPaymentDate] = useState<string | null>(null);
 
   useEffect(() => {
     const payerIdFromLocalStorage = localStorage.getItem("payerId");
+    const paymentIdFromLocalStorage = localStorage.getItem("paymentId");
     const nextPaymentDateFromLocalStorage =
       localStorage.getItem("nextPaymentDate");
 
     if (payerIdFromLocalStorage) {
       setPayerId(payerIdFromLocalStorage);
+    }
+
+    if (paymentIdFromLocalStorage) {
+      setPaymentId(paymentIdFromLocalStorage);
     }
 
     if (nextPaymentDateFromLocalStorage) {
@@ -111,18 +117,25 @@ function CadastroLogin() {
       console.log(data);
       console.log(data.link);
 
+      if (!response.ok) {
+        alert(data.error);
+        return;
+      }
+
       if (data && data.link && data.link.dado && data.link.dado.link) {
         const url = data.link.dado.link;
 
         await addDoc(collection(db, "Clients"), {
-          nomeCliente: nomeRef.current?.toString(),
+          nomeCliente: nomeRef.current?.value.toString(),
           Telefone: telefoneRef.current?.value.toString(),
           cpf: cpfRef.current?.value.toString(),
           email: emailRef.current?.value.toString(),
           senha: senhaRef.current?.value.toString(),
           payerId: payerId ? payerId.toString() : "",
+          paymentId: paymentId ? paymentId.toString() : "",
           nextPaymentDate: nextPaymentDate ? nextPaymentDate.toString() : "",
           link: url,
+          Ativo: true,
         });
 
         localStorage.setItem("link", url);

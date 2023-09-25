@@ -15,6 +15,16 @@ interface Login {
   senha: string;
 
   link: string;
+
+  Telefone: string;
+
+  cpf: string;
+
+  nomeCliente: string;
+
+  paymentId: string;
+
+  Ativo: boolean;
 }
 
 function Login() {
@@ -35,6 +45,11 @@ function Login() {
           email: data.email,
           senha: data.senha,
           link: data.link,
+          Telefone: data.Telefone,
+          nomeCliente: data.nomeCliente,
+          Ativo: data.Ativo,
+          cpf: data.cpf,
+          paymentId: data.paymentId,
         };
         return login;
       });
@@ -57,11 +72,20 @@ function Login() {
 
     if (user) {
       setUserId(user.id);
-      localStorage.setItem("userId", user.id);
-      localStorage.setItem("link", user.link);
-      console.log(user.link);
-      console.log("foi");
-      router.push("/");
+
+      console.log(user.Ativo);
+
+      if (user.Ativo == true) {
+        localStorage.setItem("userId", user.id);
+        localStorage.setItem("link", user.link);
+        localStorage.setItem("nomeCliente", user.nomeCliente);
+        localStorage.setItem("cpf", user.cpf);
+        localStorage.setItem("Telefone", user.Telefone);
+        localStorage.setItem("email", user.email);
+        localStorage.setItem("senha", user.senha);
+        localStorage.setItem("paymentId", user.paymentId);
+        router.push("/");
+      }
     } else {
       setError("Email ou senha incorretos");
       console.log("nao tem senha");
@@ -104,7 +128,7 @@ function Login() {
                     />
                   </label>
 
-                  <button>Cadastrar</button>
+                  <button>Fazer login</button>
                   {error && <div className="error-message">{error}</div>}
                 </div>
               </form>

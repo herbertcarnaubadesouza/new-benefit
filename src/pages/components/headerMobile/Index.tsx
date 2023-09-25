@@ -40,6 +40,113 @@ const HeaderMobile = () => {
   }
   const validLink = linkValue;
 
+  // LOGIN VIA API
+
+  const nomeFromStorage =
+    typeof window !== "undefined"
+      ? localStorage.getItem("nomeCliente") || ""
+      : "";
+  const cpfFromStorage =
+    typeof window !== "undefined" ? localStorage.getItem("cpf") || "" : "";
+  const telefoneFromStorage =
+    typeof window !== "undefined" ? localStorage.getItem("Telefone") || "" : "";
+  const emailFromStorage =
+    typeof window !== "undefined" ? localStorage.getItem("email") || "" : "";
+  const senhaFromStorage =
+    typeof window !== "undefined" ? localStorage.getItem("senha") || "" : "";
+
+  async function handleSubmit(event: React.MouseEvent<HTMLButtonElement>) {
+    event.preventDefault();
+
+    try {
+      const response = await fetch("/api/token", {
+        method: "POST",
+      });
+
+      const data = await response.json();
+      const accessToken = data.accessToken;
+
+      const encryptedNome = await encryptData(nomeFromStorage);
+      const encryptedCpf = await encryptData(cpfFromStorage);
+      const encryptedEmail = await encryptData(emailFromStorage);
+      const encryptedTelefone = await encryptData(telefoneFromStorage);
+
+      await loginApi(
+        accessToken,
+        encryptedNome,
+        encryptedCpf,
+        encryptedEmail,
+        encryptedTelefone
+      );
+    } catch (error) {
+      console.error("Erro ao obter o access token:", error);
+    }
+  }
+
+  async function encryptData(data: string) {
+    try {
+      const response = await fetch("/api/encrypt", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ data }),
+      });
+
+      const { encrypted } = await response.json();
+
+      return encrypted;
+    } catch (error) {
+      console.error("Erro ao encriptar os dados:", error);
+    }
+  }
+
+  async function loginApi(
+    accessToken: string,
+    nome: string,
+    cpf: string,
+    email: string,
+    telefone: string
+  ) {
+    try {
+      const response = await fetch("/api/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          accessToken,
+          nome,
+          cpf,
+          email,
+          telefone,
+        }),
+      });
+
+      const data = await response.json();
+
+      console.log(data);
+      console.log(data.link);
+
+      if (!response.ok) {
+        alert(data.error);
+        return;
+      }
+
+      if (data && data.link && data.link.dado && data.link.dado.link) {
+        const url = data.link.dado.link;
+
+        window.location.href = url;
+      } else {
+        console.log(
+          "URL de redirecionamento não encontrada na resposta do servidor"
+        );
+      }
+    } catch (error) {
+      console.error("Erro ao realizar login:", error);
+    }
+  }
+
   return (
     <div className="Navbar">
       <Link href="/">
@@ -75,9 +182,9 @@ const HeaderMobile = () => {
           </Link>
         )}
         {isLoggedIn ? (
-          <Link href={validLink}>
-            <button className="Login">Acessar clube</button>
-          </Link>
+          <button className="Login" onClick={handleSubmit}>
+            Acessar clube
+          </button>
         ) : (
           <Link href="/Checkout">
             <button className="Login">Obter acesso</button>

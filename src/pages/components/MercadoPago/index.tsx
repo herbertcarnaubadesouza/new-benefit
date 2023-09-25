@@ -108,6 +108,7 @@ export default function MercadoPago() {
               .then((res) => res.json())
               .then((data) => {
                 localStorage.setItem("payerId", data.data.payer_id);
+                localStorage.setItem("paymentId", data.id);
                 localStorage.setItem(
                   "nextPaymentDate",
                   data.data.next_payment_date

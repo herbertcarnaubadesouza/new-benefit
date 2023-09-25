@@ -26,12 +26,17 @@ export default async function handler(req: any, res: any) {
     res.status(200).json({ link: response.data });
 
   } catch (error: any) {
-    console.log("Erro durante a requisição POST:", error.response.data.erro.mensagem);
-    if (error instanceof Error) {
+    console.log("Erro durante a requisição POST:", error?.response?.data?.erro?.mensagem);
+
+    const externalStatusCode = error?.response?.status;
+    const externalErrorMessage = error?.response?.data?.erro?.mensagem;
+
+    if (externalStatusCode && externalErrorMessage) {
+      res.status(externalStatusCode).json({ error: externalErrorMessage });
+    } else if (error instanceof Error) {
       res.status(500).json({ error: error.message });
     } else {
       res.status(500).json({ error: "Um erro desconhecido ocorreu" });
     }
   }
-
 }
